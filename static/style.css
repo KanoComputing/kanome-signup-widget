@@ -94,5 +94,22 @@ input {
   text-align: left;
   max-width: 343px;
 }
+.checkbox-message a {
+  text-decoration: underline;
+  color: #9fa4a8;
+}
+
+.checkbox-messagept2 {
+  font-size: 14px;
+  line-height: 16px;
+  display: inline-block;
+  color: #9fa4a8;
+  text-align: left;
+  max-width: 343px;
+}
+.checkbox-messagept2 a {
+  text-decoration: underline;
+  color: #9fa4a8;
+}
 
 /*# sourceMappingURL=style.css.map */
