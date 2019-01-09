@@ -133,7 +133,9 @@ view : Model -> Html Msg
 view model =
     section
         [ class "kano-newsletter-section" ]
-        [ viewTitle model
-        , viewValidation model
-        , viewSignupContent model
+        [ div [ class "signuppage-container" ]
+            [ viewTitle model
+            , viewValidation model
+            , viewSignupContent model
+            ]
         ]

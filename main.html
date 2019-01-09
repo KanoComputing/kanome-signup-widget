@@ -5188,9 +5188,18 @@ var author$project$Main$view = function (model) {
 			]),
 		_List_fromArray(
 			[
-				author$project$Main$viewTitle(model),
-				author$project$Main$viewValidation(model),
-				author$project$Main$viewSignupContent(model)
+				A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('signuppage-container')
+					]),
+				_List_fromArray(
+					[
+						author$project$Main$viewTitle(model),
+						author$project$Main$viewValidation(model),
+						author$project$Main$viewSignupContent(model)
+					]))
 			]));
 };
 var elm$core$Platform$Cmd$batch = _Platform_batch;

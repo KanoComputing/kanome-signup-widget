@@ -126,6 +126,11 @@ body {
   display: inline-flex;
 }
 
+.signuppage-container {
+  max-width: 1024px;
+  text-align: -webkit-center;
+}
+
 .newsletterSubmission {
   display: contents;
 }
@@ -134,8 +139,8 @@ body {
   font-weight: 400;
   line-height: 40px;
   margin: 0px;
-  margin-left: 60px;
-  margin-top: 20px;
+  max-width: 450px;
+  text-align: left;
 }
 
 .newsletter-subheadline {
@@ -143,8 +148,8 @@ body {
   font-weight: 200;
   max-width: 450px;
   color: #a7a7a7;
-  margin-left: 60px;
   margin-top: auto;
+  text-align: left;
 }
 
 .field-title {
@@ -157,12 +162,10 @@ body {
   position: absolute;
   right: 0px;
   width: 50%;
-  padding-top: 20px;
 }
 
 .formInput {
   display: inline;
-  margin-left: 60px;
 }
 
 .input {
@@ -176,7 +179,7 @@ body {
   outline: none;
   border: 2px solid transparent;
   margin: 0 auto 14px;
-  max-width: 338px;
+  max-width: 300px;
   margin-right: 20px;
   height: 42px;
   padding: 0 16px;
@@ -222,7 +225,6 @@ body {
   margin-bottom: 10px;
   padding-top: 1px;
   max-width: 500px;
-  margin-left: 60px;
 }
 
 .checkbox {
