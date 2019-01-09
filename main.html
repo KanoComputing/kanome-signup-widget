@@ -4913,8 +4913,8 @@ var author$project$Main$viewValidation = function (model) {
 	}
 };
 var elm$html$Html$a = _VirtualDom_node('a');
+var elm$html$Html$button = _VirtualDom_node('button');
 var elm$html$Html$div = _VirtualDom_node('div');
-var elm$html$Html$i = _VirtualDom_node('i');
 var elm$html$Html$input = _VirtualDom_node('input');
 var elm$html$Html$label = _VirtualDom_node('label');
 var elm$html$Html$Attributes$href = function (url) {
@@ -5078,21 +5078,15 @@ var author$project$Main$view = function (model) {
 									]),
 								_List_Nil),
 								A2(
-								elm$html$Html$a,
+								elm$html$Html$button,
 								_List_fromArray(
 									[
-										elm$html$Html$Attributes$class('icon is-small'),
+										elm$html$Html$Attributes$class('button'),
 										elm$html$Html$Events$onClick(author$project$Main$Submit)
 									]),
 								_List_fromArray(
 									[
-										A2(
-										elm$html$Html$i,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('fas fa-arrow-right')
-											]),
-										_List_Nil)
+										elm$html$Html$text('SIGN ME UP')
 									]))
 							])),
 						A2(
@@ -5120,7 +5114,7 @@ var author$project$Main$view = function (model) {
 									]),
 								_List_fromArray(
 									[
-										elm$html$Html$text('Tick here to receive the latest news, offers and promotions from Kano. '),
+										elm$html$Html$text('By ticking here you are opting-in to receive the latest news, offers, promotions and competitions from Kano. '),
 										A2(
 										elm$html$Html$a,
 										_List_fromArray(
@@ -5129,27 +5123,17 @@ var author$project$Main$view = function (model) {
 											]),
 										_List_fromArray(
 											[
-												elm$html$Html$text('Take a peak')
+												elm$html$Html$text('Take a peak ')
 											])),
 										A2(
 										elm$html$Html$p,
 										_List_fromArray(
 											[
-												elm$html$Html$Attributes$class('checkbox-message2')
+												elm$html$Html$Attributes$class('checkbox-message')
 											]),
 										_List_fromArray(
 											[
-												elm$html$Html$text('at how we are using your data. Or see our ')
-											])),
-										A2(
-										elm$html$Html$a,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$href('https://kano.me/terms-and-conditions/uk')
-											]),
-										_List_fromArray(
-											[
-												elm$html$Html$text('terms and conditions.')
+												elm$html$Html$text('at how we are using your data.')
 											]))
 									]))
 							]))

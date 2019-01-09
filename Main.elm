@@ -1,7 +1,7 @@
 module Main exposing (Model, Msg(..), init, main, update, view)
 
 import Browser
-import Html exposing (Attribute, Html, a, button, div, fieldset, h2, i, input, label, p, section, text)
+import Html exposing (Attribute, Html, a, button, div, fieldset, h2, i, input, label, p, section, span, text)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick, onInput)
 
@@ -102,17 +102,16 @@ view model =
             , viewValidation model
             , div [ class "control" ]
                 [ input [ class "input email", placeholder "Enter your email", value model.email, onInput Email ] []
-                , a [ class "icon is-small", onClick Submit ]
-                    [ i [ class "fas fa-arrow-right" ] [] ]
+                , button [ class "button", onClick Submit ]
+                    [ text "SIGN ME UP" ]
                 ]
             , label [ class "checkbox-control" ]
                 [ input [ class "checkbox", type_ "checkbox", onClick ToggleNotifications ] []
                 , p [ class "checkbox-message" ]
-                    [ text "Tick here to receive the latest news, offers and promotions from Kano. "
+                    [ text "By ticking here you are opting-in to receive the latest news, offers, promotions and competitions from Kano. "
                     , a [ href "https://kano.me/privacy-policy/uk" ]
-                        [ text "Take a peak" ]
-                    , p [ class "checkbox-message2" ] [ text "at how we are using your data. Or see our " ]
-                    , a [ href "https://kano.me/terms-and-conditions/uk" ] [ text "terms and conditions." ]
+                        [ text "Take a peak " ]
+                    , p [ class "checkbox-message" ] [ text "at how we are using your data." ]
                     ]
                 ]
             ]

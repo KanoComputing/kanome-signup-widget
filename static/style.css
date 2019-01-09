@@ -1,5 +1,5 @@
 .container {
-  width: 30%;
+  width: 50%;
   padding-bottom: 50px;
   padding-top: 50px;
 }
@@ -30,6 +30,7 @@
   border: 2px solid transparent;
   margin: 0 auto 14px;
   max-width: 368px;
+  margin-right: 25px;
 }
 
 .message {
@@ -43,14 +44,19 @@
   text-align: left;
 }
 
-.icon {
-  display: inline;
-  padding: 3px 3px 3px 10px;
-  vertical-align: sub;
-  align-items: center;
-  cursor: pointer;
-  color: #9fa4a8;
-  -webkit-box-align: center;
+.button {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  border-radius: 2rem;
+  background-color: #ff6900;
+  border: none;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 body {
@@ -62,14 +68,6 @@ fieldset {
   border: none;
 }
 
-input {
-  line-height: 1.5em;
-  border-radius: 8px;
-  font-size: 16px;
-  color: #414a51;
-  padding: 5px;
-}
-
 .checkbox-control {
   display: block;
   position: relative;
@@ -78,11 +76,14 @@ input {
 }
 
 .checkbox {
-  position: absolute;
   width: 16px;
   height: 16px;
   border: 1px solid #e9ebec;
   border-radius: 3px;
+}
+
+.span .checkbox-message {
+  padding-left: 20px;
 }
 
 .checkbox-message {
@@ -90,26 +91,15 @@ input {
   line-height: 16px;
   display: inline-block;
   color: #9fa4a8;
-  padding-left: 20px;
   text-align: left;
-  max-width: 343px;
 }
 .checkbox-message a {
   text-decoration: underline;
   color: #9fa4a8;
 }
 
-.checkbox-messagept2 {
-  font-size: 14px;
-  line-height: 16px;
-  display: inline-block;
-  color: #9fa4a8;
-  text-align: left;
-  max-width: 343px;
-}
-.checkbox-messagept2 a {
-  text-decoration: underline;
-  color: #9fa4a8;
+.control {
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */
