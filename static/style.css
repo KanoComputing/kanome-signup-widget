@@ -1,5 +1,67 @@
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_bold_italic-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_bold_italic-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_bold_italic-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_bold_italic-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_bold_italic-webfont.svg#bariol_boldbold_italic) format("svg");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_regular-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_regular-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_regular-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_regular-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_regular-webfont.svg#bariol_regularregular) format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_regular_italic-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_regular_italic-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_regular_italic-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_regular_italic-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_regular_italic-webfont.svg#bariolregular_italic) format("svg");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_light-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_light-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_light-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_light-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_light-webfont.svg#bariol_lightlight) format("svg");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_light_italic-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_light_italic-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_light_italic-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_light_italic-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_light_italic-webfont.svg#bariollight_italic) format("svg");
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_thin-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_thin-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_thin-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_thin-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_thin-webfont.svg#bariolthin) format("svg");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_thin_italic-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_thin_italic-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_thin_italic-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_thin_italic-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_thin_italic-webfont.svg#bariolthin_italic) format("svg");
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: bemioregular;
+  src: url(https://cdn.kano.me/fonts/bemio-regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: vagbold;
+  src: url(https://cdn.kano.me/fonts/vag-rounded.eot);
+  src: url(https://cdn.kano.me/fonts/vag-rounded.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/vag-rounded.ttf) format("truetype"), url(https://cdn.kano.me/fonts/vag-rounded.otf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
 .container {
-  width: 50%;
+  width: 40%;
   padding-bottom: 50px;
   padding-top: 50px;
 }
@@ -30,7 +92,7 @@
   border: 2px solid transparent;
   margin: 0 auto 14px;
   max-width: 368px;
-  margin-right: 25px;
+  margin-right: 20px;
 }
 
 .message {
@@ -57,11 +119,14 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 body {
   background: #292f35;
   color: #ffffff;
+  font-family: bariol;
 }
 
 fieldset {
@@ -82,10 +147,6 @@ fieldset {
   border-radius: 3px;
 }
 
-.span .checkbox-message {
-  padding-left: 20px;
-}
-
 .checkbox-message {
   font-size: 14px;
   line-height: 16px;
@@ -96,10 +157,6 @@ fieldset {
 .checkbox-message a {
   text-decoration: underline;
   color: #9fa4a8;
-}
-
-.control {
-  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */
