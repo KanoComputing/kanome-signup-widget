@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Main</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <link rel="stylesheet" href="static/style.css">
 </head>
 
@@ -4861,6 +4859,11 @@ var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 			return 3;
 	}
 };
+var elm$html$Html$a = _VirtualDom_node('a');
+var elm$html$Html$button = _VirtualDom_node('button');
+var elm$html$Html$div = _VirtualDom_node('div');
+var elm$html$Html$input = _VirtualDom_node('input');
+var elm$html$Html$label = _VirtualDom_node('label');
 var elm$html$Html$p = _VirtualDom_node('p');
 var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
@@ -4873,50 +4876,6 @@ var elm$html$Html$Attributes$stringProperty = F2(
 			elm$json$Json$Encode$string(string));
 	});
 var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
-var author$project$Main$viewValidation = function (model) {
-	var _n0 = model.validationResults;
-	switch (_n0.$) {
-		case 'Null':
-			return A2(
-				elm$html$Html$p,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('message')
-					]),
-				_List_fromArray(
-					[
-						elm$html$Html$text('')
-					]));
-		case 'Error':
-			var message = _n0.a;
-			return A2(
-				elm$html$Html$p,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('message')
-					]),
-				_List_fromArray(
-					[
-						elm$html$Html$text('Sorry, that email address isn\'t valid. Please try again.')
-					]));
-		default:
-			return A2(
-				elm$html$Html$p,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('message')
-					]),
-				_List_fromArray(
-					[
-						elm$html$Html$text('Thank you for your subscription!')
-					]));
-	}
-};
-var elm$html$Html$a = _VirtualDom_node('a');
-var elm$html$Html$button = _VirtualDom_node('button');
-var elm$html$Html$div = _VirtualDom_node('div');
-var elm$html$Html$input = _VirtualDom_node('input');
-var elm$html$Html$label = _VirtualDom_node('label');
 var elm$html$Html$Attributes$href = function (url) {
 	return A2(
 		elm$html$Html$Attributes$stringProperty,
@@ -5031,7 +4990,7 @@ var elm$html$Html$Events$onInput = function (tagger) {
 			elm$html$Html$Events$alwaysStop,
 			A2(elm$json$Json$Decode$map, tagger, elm$html$Html$Events$targetValue)));
 };
-var author$project$Main$view = function (model) {
+var author$project$Main$viewSignupContent = function (model) {
 	return A2(
 		elm$html$Html$div,
 		_List_fromArray(
@@ -5044,49 +5003,47 @@ var author$project$Main$view = function (model) {
 				elm$html$Html$div,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$class('field')
+						elm$html$Html$Attributes$class('field-contents')
 					]),
 				_List_fromArray(
 					[
 						A2(
-						elm$html$Html$label,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('label')
-							]),
-						_List_fromArray(
-							[
-								elm$html$Html$text('Enter your email to subscribe to our newsletter')
-							])),
-						author$project$Main$viewValidation(model),
-						A2(
 						elm$html$Html$div,
 						_List_fromArray(
 							[
-								elm$html$Html$Attributes$class('control')
+								elm$html$Html$Attributes$class('newsletterSubmission')
 							]),
 						_List_fromArray(
 							[
 								A2(
-								elm$html$Html$input,
+								elm$html$Html$div,
 								_List_fromArray(
 									[
-										elm$html$Html$Attributes$class('input email'),
-										elm$html$Html$Attributes$placeholder('Enter your email'),
-										elm$html$Html$Attributes$value(model.email),
-										elm$html$Html$Events$onInput(author$project$Main$Email)
-									]),
-								_List_Nil),
-								A2(
-								elm$html$Html$button,
-								_List_fromArray(
-									[
-										elm$html$Html$Attributes$class('button'),
-										elm$html$Html$Events$onClick(author$project$Main$Submit)
+										elm$html$Html$Attributes$class('formInput')
 									]),
 								_List_fromArray(
 									[
-										elm$html$Html$text('SIGN ME UP')
+										A2(
+										elm$html$Html$input,
+										_List_fromArray(
+											[
+												elm$html$Html$Attributes$class('input email'),
+												elm$html$Html$Attributes$placeholder('Enter your email'),
+												elm$html$Html$Attributes$value(model.email),
+												elm$html$Html$Events$onInput(author$project$Main$Email)
+											]),
+										_List_Nil),
+										A2(
+										elm$html$Html$button,
+										_List_fromArray(
+											[
+												elm$html$Html$Attributes$class('button'),
+												elm$html$Html$Events$onClick(author$project$Main$Submit)
+											]),
+										_List_fromArray(
+											[
+												elm$html$Html$text('SIGN ME UP')
+											]))
 									]))
 							])),
 						A2(
@@ -5138,6 +5095,102 @@ var author$project$Main$view = function (model) {
 									]))
 							]))
 					]))
+			]));
+};
+var elm$html$Html$h1 = _VirtualDom_node('h1');
+var elm$html$Html$h4 = _VirtualDom_node('h4');
+var author$project$Main$viewTitle = function (model) {
+	return A2(
+		elm$html$Html$div,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$class('container')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('field-title')
+					]),
+				_List_fromArray(
+					[
+						A2(
+						elm$html$Html$h1,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('newsletter-headline')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('Sign up for Kano Updates')
+							])),
+						A2(
+						elm$html$Html$h4,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('newsletter-subheadline')
+							]),
+						_List_fromArray(
+							[
+								elm$html$Html$text('You\'ll also receive the latest news, offers and projects straight to your inbox.')
+							]))
+					]))
+			]));
+};
+var author$project$Main$viewValidation = function (model) {
+	var _n0 = model.validationResults;
+	switch (_n0.$) {
+		case 'Null':
+			return A2(
+				elm$html$Html$p,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('message')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('')
+					]));
+		case 'Error':
+			var message = _n0.a;
+			return A2(
+				elm$html$Html$p,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('message')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Sorry, that email address isn\'t valid. Please try again.')
+					]));
+		default:
+			return A2(
+				elm$html$Html$p,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('message')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Thank you for your subscription!')
+					]));
+	}
+};
+var elm$html$Html$section = _VirtualDom_node('section');
+var author$project$Main$view = function (model) {
+	return A2(
+		elm$html$Html$section,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$class('kano-newsletter-section')
+			]),
+		_List_fromArray(
+			[
+				author$project$Main$viewTitle(model),
+				author$project$Main$viewValidation(model),
+				author$project$Main$viewSignupContent(model)
 			]));
 };
 var elm$core$Platform$Cmd$batch = _Platform_batch;

@@ -1,7 +1,7 @@
 module Main exposing (Model, Msg(..), init, main, update, view)
 
 import Browser
-import Html exposing (Attribute, Html, a, button, div, fieldset, h2, i, input, label, p, section, span, text)
+import Html exposing (Attribute, Html, a, button, div, fieldset, form, h1, h2, h4, input, label, p, section, text)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick, onInput)
 
@@ -93,17 +93,28 @@ checkbox model =
         ]
 
 
-view : Model -> Html Msg
-view model =
+viewTitle : Model -> Html Msg
+viewTitle model =
     div [ class "container" ]
-        [ div [ class "field" ]
-            [ label [ class "label" ]
-                [ text "Enter your email to subscribe to our newsletter" ]
-            , viewValidation model
-            , div [ class "control" ]
-                [ input [ class "input email", placeholder "Enter your email", value model.email, onInput Email ] []
-                , button [ class "button", onClick Submit ]
-                    [ text "SIGN ME UP" ]
+        [ div [ class "field-title" ]
+            [ h1 [ class "newsletter-headline" ]
+                [ text "Sign up for Kano Updates" ]
+            , h4 [ class "newsletter-subheadline" ]
+                [ text "You'll also receive the latest news, offers and projects straight to your inbox." ]
+            ]
+        ]
+
+
+viewSignupContent : Model -> Html Msg
+viewSignupContent model =
+    div [ class "container" ]
+        [ div [ class "field-contents" ]
+            [ div [ class "newsletterSubmission" ]
+                [ div [ class "formInput" ]
+                    [ input [ class "input email", placeholder "Enter your email", value model.email, onInput Email ] []
+                    , button [ class "button", onClick Submit ]
+                        [ text "SIGN ME UP" ]
+                    ]
                 ]
             , label [ class "checkbox-control" ]
                 [ input [ class "checkbox", type_ "checkbox", onClick ToggleNotifications ] []
@@ -115,4 +126,14 @@ view model =
                     ]
                 ]
             ]
+        ]
+
+
+view : Model -> Html Msg
+view model =
+    section
+        [ class "kano-newsletter-section" ]
+        [ viewTitle model
+        , viewValidation model
+        , viewSignupContent model
         ]

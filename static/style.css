@@ -60,44 +60,77 @@
   font-weight: 400;
   font-style: normal;
 }
-.container {
-  width: 40%;
-  padding-bottom: 50px;
-  padding-top: 50px;
+body {
+  background: #394148;
+  color: #ffffff;
+  font-family: bariol;
 }
 
-.label {
-  color: #ffffff;
-  font-size: 32px;
-  line-height: 40px;
+.kano-newsletter-section {
+  display: inline-flex;
+}
+
+.newsletterSubmission {
+  display: contents;
+}
+
+.newsletter-headline {
+  font-size: 24px;
   font-weight: 400;
-  text-align: left;
-  padding-bottom: 0.75rem;
-  text-transform: none;
-  padding-top: 1rem;
+  line-height: 40px;
+  margin: 0px;
+  margin-left: 60px;
+  margin-top: 20px;
+}
+
+.newsletter-subheadline {
+  font-size: 18px;
+  font-weight: 200;
+  max-width: 450px;
+  color: #a7a7a7;
+  margin-left: 60px;
+  margin-top: auto;
+}
+
+.field-title {
+  position: absolute;
+  left: 0px;
+  width: 50%;
+}
+
+.field-contents {
+  position: absolute;
+  right: 0px;
+  width: 50%;
+  padding-top: 20px;
+}
+
+.formInput {
+  display: inline;
+  margin-left: 60px;
 }
 
 .input {
+  font-family: bariol;
   color: #414a51;
   border-radius: 8px;
   display: inline-block;
   font-size: 16px;
   line-height: 1.5rem;
-  width: 90%;
-  border-right: 0;
-  border-bottom: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
-  border-top: 1px solid #ffffff;
+  width: 80%;
   outline: none;
   border: 2px solid transparent;
   margin: 0 auto 14px;
-  max-width: 368px;
+  max-width: 338px;
   margin-right: 20px;
+  height: 42px;
+  padding: 0 16px;
+  border: 2px solid #e9ebec;
 }
 
 .message {
   color: #a7a7a7;
-  background: #292f35;
+  background: #394148;
   font-weight: 200;
   margin-top: 0;
   font-size: 16px;
@@ -109,35 +142,32 @@
 .button {
   position: relative;
   display: inline-block;
-  font-weight: 700;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "bariol";
   border-radius: 2rem;
   background-color: #ff6900;
-  border: none;
-  color: #ffffff;
-  text-decoration: none;
   transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-body {
-  background: #292f35;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  background-color: #ff6900;
   color: #ffffff;
-  font-family: bariol;
-}
-
-fieldset {
-  border: none;
 }
 
 .checkbox-control {
-  display: block;
+  display: inline-flex;
   position: relative;
   margin-bottom: 10px;
   padding-top: 1px;
+  max-width: 500px;
+  margin-left: 60px;
 }
 
 .checkbox {
@@ -148,6 +178,8 @@ fieldset {
 }
 
 .checkbox-message {
+  padding: 0px;
+  margin: 0px;
   font-size: 14px;
   line-height: 16px;
   display: inline-block;
