@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Main</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <link rel="stylesheet" href="static/style.css">
 </head>
 
@@ -4859,11 +4861,6 @@ var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 			return 3;
 	}
 };
-var elm$html$Html$a = _VirtualDom_node('a');
-var elm$html$Html$button = _VirtualDom_node('button');
-var elm$html$Html$div = _VirtualDom_node('div');
-var elm$html$Html$input = _VirtualDom_node('input');
-var elm$html$Html$label = _VirtualDom_node('label');
 var elm$html$Html$p = _VirtualDom_node('p');
 var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
@@ -4876,6 +4873,50 @@ var elm$html$Html$Attributes$stringProperty = F2(
 			elm$json$Json$Encode$string(string));
 	});
 var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
+var author$project$Main$viewValidation = function (model) {
+	var _n0 = model.validationResults;
+	switch (_n0.$) {
+		case 'Null':
+			return A2(
+				elm$html$Html$p,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('message')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('')
+					]));
+		case 'Error':
+			var message = _n0.a;
+			return A2(
+				elm$html$Html$p,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('message')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Sorry, that email address isn\'t valid. Please try again.')
+					]));
+		default:
+			return A2(
+				elm$html$Html$p,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('message')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Thank you for your subscription!')
+					]));
+	}
+};
+var elm$html$Html$a = _VirtualDom_node('a');
+var elm$html$Html$button = _VirtualDom_node('button');
+var elm$html$Html$div = _VirtualDom_node('div');
+var elm$html$Html$input = _VirtualDom_node('input');
+var elm$html$Html$label = _VirtualDom_node('label');
 var elm$html$Html$Attributes$href = function (url) {
 	return A2(
 		elm$html$Html$Attributes$stringProperty,
@@ -4995,7 +5036,7 @@ var author$project$Main$viewSignupContent = function (model) {
 		elm$html$Html$div,
 		_List_fromArray(
 			[
-				elm$html$Html$Attributes$class('container')
+				elm$html$Html$Attributes$class('column is-mobile')
 			]),
 		_List_fromArray(
 			[
@@ -5003,7 +5044,7 @@ var author$project$Main$viewSignupContent = function (model) {
 				elm$html$Html$div,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$class('field-contents')
+						elm$html$Html$Attributes$class('field')
 					]),
 				_List_fromArray(
 					[
@@ -5023,6 +5064,7 @@ var author$project$Main$viewSignupContent = function (model) {
 									]),
 								_List_fromArray(
 									[
+										author$project$Main$viewValidation(model),
 										A2(
 										elm$html$Html$input,
 										_List_fromArray(
@@ -5080,7 +5122,7 @@ var author$project$Main$viewSignupContent = function (model) {
 											]),
 										_List_fromArray(
 											[
-												elm$html$Html$text('Take a peak ')
+												elm$html$Html$text('Take a peak')
 											])),
 										A2(
 										elm$html$Html$p,
@@ -5104,7 +5146,7 @@ var author$project$Main$viewTitle = function (model) {
 		elm$html$Html$div,
 		_List_fromArray(
 			[
-				elm$html$Html$Attributes$class('container')
+				elm$html$Html$Attributes$class('column is-mobile')
 			]),
 		_List_fromArray(
 			[
@@ -5112,7 +5154,7 @@ var author$project$Main$viewTitle = function (model) {
 				elm$html$Html$div,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$class('field-title')
+						elm$html$Html$Attributes$class('field')
 					]),
 				_List_fromArray(
 					[
@@ -5139,45 +5181,6 @@ var author$project$Main$viewTitle = function (model) {
 					]))
 			]));
 };
-var author$project$Main$viewValidation = function (model) {
-	var _n0 = model.validationResults;
-	switch (_n0.$) {
-		case 'Null':
-			return A2(
-				elm$html$Html$p,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('message')
-					]),
-				_List_fromArray(
-					[
-						elm$html$Html$text('')
-					]));
-		case 'Error':
-			var message = _n0.a;
-			return A2(
-				elm$html$Html$p,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('message')
-					]),
-				_List_fromArray(
-					[
-						elm$html$Html$text('Sorry, that email address isn\'t valid. Please try again.')
-					]));
-		default:
-			return A2(
-				elm$html$Html$p,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('message')
-					]),
-				_List_fromArray(
-					[
-						elm$html$Html$text('Thank you for your subscription!')
-					]));
-	}
-};
 var elm$html$Html$section = _VirtualDom_node('section');
 var author$project$Main$view = function (model) {
 	return A2(
@@ -5192,13 +5195,21 @@ var author$project$Main$view = function (model) {
 				elm$html$Html$div,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$class('signuppage-container')
+						elm$html$Html$Attributes$class('container is-fluid')
 					]),
 				_List_fromArray(
 					[
-						author$project$Main$viewTitle(model),
-						author$project$Main$viewValidation(model),
-						author$project$Main$viewSignupContent(model)
+						A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('columns is-vcentered')
+							]),
+						_List_fromArray(
+							[
+								author$project$Main$viewTitle(model),
+								author$project$Main$viewSignupContent(model)
+							]))
 					]))
 			]));
 };

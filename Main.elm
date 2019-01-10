@@ -95,8 +95,8 @@ checkbox model =
 
 viewTitle : Model -> Html Msg
 viewTitle model =
-    div [ class "container" ]
-        [ div [ class "field-title" ]
+    div [ class "column is-mobile" ]
+        [ div [ class "field" ]
             [ h1 [ class "newsletter-headline" ]
                 [ text "Sign up for Kano Updates" ]
             , h4 [ class "newsletter-subheadline" ]
@@ -107,11 +107,12 @@ viewTitle model =
 
 viewSignupContent : Model -> Html Msg
 viewSignupContent model =
-    div [ class "container" ]
-        [ div [ class "field-contents" ]
+    div [ class "column is-mobile" ]
+        [ div [ class "field" ]
             [ div [ class "newsletterSubmission" ]
                 [ div [ class "formInput" ]
-                    [ input [ class "input email", placeholder "Enter your email", value model.email, onInput Email ] []
+                    [ viewValidation model
+                    , input [ class "input email", placeholder "Enter your email", value model.email, onInput Email ] []
                     , button [ class "button", onClick Submit ]
                         [ text "SIGN ME UP" ]
                     ]
@@ -121,7 +122,7 @@ viewSignupContent model =
                 , p [ class "checkbox-message" ]
                     [ text "By ticking here you are opting-in to receive the latest news, offers, promotions and competitions from Kano. "
                     , a [ href "https://kano.me/privacy-policy/uk" ]
-                        [ text "Take a peak " ]
+                        [ text "Take a peak" ]
                     , p [ class "checkbox-message" ] [ text "at how we are using your data." ]
                     ]
                 ]
@@ -133,9 +134,10 @@ view : Model -> Html Msg
 view model =
     section
         [ class "kano-newsletter-section" ]
-        [ div [ class "signuppage-container" ]
-            [ viewTitle model
-            , viewValidation model
-            , viewSignupContent model
+        [ div [ class "container is-fluid" ]
+            [ div [ class "columns is-vcentered" ]
+                [ viewTitle model
+                , viewSignupContent model
+                ]
             ]
         ]

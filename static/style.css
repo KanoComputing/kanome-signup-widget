@@ -66,21 +66,12 @@ body {
   font-family: bariol;
 }
 
-.kano-newsletter-section {
-  display: inline-flex;
-}
-
-.signuppage-container {
-  max-width: 1024px;
-  text-align: -webkit-center;
-}
-
-.newsletterSubmission {
-  display: contents;
+.container {
+  text-align: center;
 }
 
 .newsletter-headline {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 400;
   line-height: 40px;
   margin: 0px;
@@ -97,20 +88,8 @@ body {
   text-align: left;
 }
 
-.field-title {
-  position: absolute;
-  left: 0px;
-  width: 50%;
-}
-
-.field-contents {
-  position: absolute;
-  right: 0px;
-  width: 50%;
-}
-
-.formInput {
-  display: inline;
+.column {
+  text-align: -webkit-center;
 }
 
 .input {
@@ -140,6 +119,7 @@ body {
   line-height: 24px;
   text-transform: none;
   text-align: left;
+  max-width: 400px;
 }
 
 .button {
@@ -149,27 +129,25 @@ body {
   text-transform: uppercase;
   font-family: "bariol";
   border-radius: 2rem;
-  background-color: #ff6900;
   transition: background-color 0.3s;
   border: none;
   cursor: pointer;
-  text-decoration: none;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  padding: 0.75rem 1.75rem;
-  font-size: 0.875rem;
-  line-height: 1.125rem;
   background-color: #ff6900;
   color: #ffffff;
+  margin-top: 2px;
+  vertical-align: middle;
 }
 
 .checkbox-control {
   display: inline-flex;
   position: relative;
   margin-bottom: 10px;
-  padding-top: 1px;
-  max-width: 500px;
+  padding-top: 5px;
+  max-width: 450px;
+  padding-left: 12px;
 }
 
 .checkbox {
@@ -187,10 +165,65 @@ body {
   display: inline-block;
   color: #9fa4a8;
   text-align: left;
+  padding-left: 10px;
 }
 .checkbox-message a {
   text-decoration: underline;
   color: #9fa4a8;
+}
+
+@media (min-width: 900px) {
+  .container {
+    padding: 10px;
+  }
+}
+@media (min-width: 769px) and (max-width: 900px) {
+  .formInput {
+    text-align: right;
+  }
+}
+@media (min-width: 769px) and (max-width: 900px) {
+  .checkbox-message {
+    text-align: right;
+  }
+}
+@media (min-width: 769px) and (max-width: 900px) {
+  .message {
+    text-align: right;
+  }
+}
+@media (min-width: 769px) and (max-width: 900px) {
+  .input {
+    margin: 0px;
+  }
+}
+@media (min-width: 769px) and (max-width: 900px) {
+  .container {
+    padding: 40px;
+  }
+}
+@media (min-width: 769px) and (max-width: 900px) {
+  .button {
+    margin: 10px 0px 5px;
+  }
+}
+@media (min-width: 769px) and (max-width: 900px) {
+  .newsletter-headline {
+    padding-bottom: 30px;
+  }
+}
+@media all and (max-width: 650px) {
+  .newsletter-headline {
+    padding: 20px;
+  }
+  .newsletter-headline .newsletter-subheadline {
+    padding: 20px;
+  }
+}
+@media all and (max-width: 650px) {
+  .newsletter-subheadline {
+    padding: 20px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
