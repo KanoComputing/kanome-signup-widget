@@ -4324,12 +4324,17 @@ function _Browser_load(url)
 	}));
 }
 var author$project$Main$Model = F4(
-	function (title, email, notifications, validationResults) {
-		return {email: email, notifications: notifications, title: title, validationResults: validationResults};
+	function (flags, email, notifications, validationResults) {
+		return {email: email, flags: flags, notifications: notifications, validationResults: validationResults};
 	});
 var author$project$Main$Null = {$: 'Null'};
+var author$project$Main$Flags = F5(
+	function (campaign, title, description, button, checkbox) {
+		return {button: button, campaign: campaign, checkbox: checkbox, description: description, title: title};
+	});
 var elm$core$Basics$False = {$: 'False'};
-var author$project$Main$init = A4(author$project$Main$Model, '', '', false, author$project$Main$Null);
+var author$project$Main$initFlags = A5(author$project$Main$Flags, 'newsletter', 'Sign up for Kano updates', 'You\'ll also receive the latest news, offers and projects straight to your inbox.', 'SIGN ME UP', false);
+var author$project$Main$init = A4(author$project$Main$Model, author$project$Main$initFlags, '', false, author$project$Main$Null);
 var author$project$Main$Error = function (a) {
 	return {$: 'Error', a: a};
 };
@@ -4427,11 +4432,6 @@ var elm$core$Basics$not = _Basics_not;
 var author$project$Main$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
-			case 'Title':
-				var newTitle = msg.a;
-				return _Utils_update(
-					model,
-					{title: newTitle});
 			case 'Email':
 				var newEmail = msg.a;
 				return _Utils_update(
@@ -4917,12 +4917,22 @@ var elm$html$Html$button = _VirtualDom_node('button');
 var elm$html$Html$div = _VirtualDom_node('div');
 var elm$html$Html$input = _VirtualDom_node('input');
 var elm$html$Html$label = _VirtualDom_node('label');
+var elm$virtual_dom$VirtualDom$attribute = F2(
+	function (key, value) {
+		return A2(
+			_VirtualDom_attribute,
+			_VirtualDom_noOnOrFormAction(key),
+			_VirtualDom_noJavaScriptOrHtmlUri(value));
+	});
+var elm$html$Html$Attributes$attribute = elm$virtual_dom$VirtualDom$attribute;
 var elm$html$Html$Attributes$href = function (url) {
 	return A2(
 		elm$html$Html$Attributes$stringProperty,
 		'href',
 		_VirtualDom_noJavaScriptUri(url));
 };
+var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
+var elm$html$Html$Attributes$name = elm$html$Html$Attributes$stringProperty('name');
 var elm$html$Html$Attributes$placeholder = elm$html$Html$Attributes$stringProperty('placeholder');
 var elm$html$Html$Attributes$type_ = elm$html$Html$Attributes$stringProperty('type');
 var elm$html$Html$Attributes$value = elm$html$Html$Attributes$stringProperty('value');
@@ -5032,6 +5042,7 @@ var elm$html$Html$Events$onInput = function (tagger) {
 			A2(elm$json$Json$Decode$map, tagger, elm$html$Html$Events$targetValue)));
 };
 var author$project$Main$viewSignupContent = function (model) {
+	var flags = model.flags;
 	return A2(
 		elm$html$Html$div,
 		_List_fromArray(
@@ -5069,7 +5080,17 @@ var author$project$Main$viewSignupContent = function (model) {
 										elm$html$Html$input,
 										_List_fromArray(
 											[
+												elm$html$Html$Attributes$type_('hidden'),
+												elm$html$Html$Attributes$name('campaign'),
+												elm$html$Html$Attributes$value(flags.campaign)
+											]),
+										_List_Nil),
+										A2(
+										elm$html$Html$input,
+										_List_fromArray(
+											[
 												elm$html$Html$Attributes$class('input email'),
+												elm$html$Html$Attributes$name('email'),
 												elm$html$Html$Attributes$placeholder('Enter your email'),
 												elm$html$Html$Attributes$value(model.email),
 												elm$html$Html$Events$onInput(author$project$Main$Email)
@@ -5084,64 +5105,65 @@ var author$project$Main$viewSignupContent = function (model) {
 											]),
 										_List_fromArray(
 											[
-												elm$html$Html$text('SIGN ME UP')
+												elm$html$Html$text(flags.button)
 											]))
 									]))
 							])),
-						A2(
-						elm$html$Html$label,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('checkbox-control')
-							]),
-						_List_fromArray(
-							[
-								A2(
-								elm$html$Html$input,
+						function () {
+						var _n0 = flags.checkbox;
+						if (_n0) {
+							return A2(
+								elm$html$Html$div,
 								_List_fromArray(
 									[
-										elm$html$Html$Attributes$class('checkbox'),
-										elm$html$Html$Attributes$type_('checkbox'),
-										elm$html$Html$Events$onClick(author$project$Main$ToggleNotifications)
-									]),
-								_List_Nil),
-								A2(
-								elm$html$Html$p,
-								_List_fromArray(
-									[
-										elm$html$Html$Attributes$class('checkbox-message')
+										elm$html$Html$Attributes$class('consent-checkbox')
 									]),
 								_List_fromArray(
 									[
-										elm$html$Html$text('By ticking here you are opting-in to receive the latest news, offers, promotions and competitions from Kano. '),
 										A2(
-										elm$html$Html$a,
+										elm$html$Html$input,
 										_List_fromArray(
 											[
-												elm$html$Html$Attributes$href('https://kano.me/privacy-policy/uk')
+												elm$html$Html$Attributes$class('checkbox'),
+												elm$html$Html$Attributes$type_('checkbox'),
+												elm$html$Html$Attributes$name('opt_in'),
+												elm$html$Html$Attributes$id('opt_in'),
+												elm$html$Html$Events$onClick(author$project$Main$ToggleNotifications)
+											]),
+										_List_Nil),
+										A2(
+										elm$html$Html$label,
+										_List_fromArray(
+											[
+												A2(elm$html$Html$Attributes$attribute, 'for', 'opt_in')
 											]),
 										_List_fromArray(
 											[
-												elm$html$Html$text('Take a peak')
-											])),
-										A2(
-										elm$html$Html$p,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('checkbox-message')
-											]),
-										_List_fromArray(
-											[
+												elm$html$Html$text('By ticking here you are opting-in to receive the latest news, offers, promotions and competitions from Kano. '),
+												A2(
+												elm$html$Html$a,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$href('https://kano.me/privacy-policy/uk')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text('Take a peak ')
+													])),
 												elm$html$Html$text('at how we are using your data.')
 											]))
-									]))
-							]))
+									]));
+						} else {
+							return elm$html$Html$text('');
+						}
+					}()
 					]))
 			]));
 };
 var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$html$Html$h4 = _VirtualDom_node('h4');
 var author$project$Main$viewTitle = function (model) {
+	var flags = model.flags;
 	return A2(
 		elm$html$Html$div,
 		_List_fromArray(
@@ -5166,7 +5188,7 @@ var author$project$Main$viewTitle = function (model) {
 							]),
 						_List_fromArray(
 							[
-								elm$html$Html$text('Sign up for Kano Updates')
+								elm$html$Html$text(flags.title)
 							])),
 						A2(
 						elm$html$Html$h4,
@@ -5176,7 +5198,7 @@ var author$project$Main$viewTitle = function (model) {
 							]),
 						_List_fromArray(
 							[
-								elm$html$Html$text('You\'ll also receive the latest news, offers and projects straight to your inbox.')
+								elm$html$Html$text(flags.description)
 							]))
 					]))
 			]));

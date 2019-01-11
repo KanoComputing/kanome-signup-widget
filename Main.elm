@@ -14,8 +14,22 @@ main =
 -- MODEL
 
 
+type alias Flags =
+    { campaign : String
+    , title : String
+    , description : String
+    , button : String
+    , checkbox : Bool
+    }
+
+
+initFlags : Flags
+initFlags =
+    Flags "newsletter" "Sign up for Kano updates" "You'll also receive the latest news, offers and projects straight to your inbox." "SIGN ME UP" False
+
+
 type alias Model =
-    { title : String
+    { flags : Flags
     , email : String
     , notifications : Bool
     , validationResults : ValidationResults
@@ -30,7 +44,7 @@ type ValidationResults
 
 init : Model
 init =
-    Model "" "" False Null
+    Model initFlags "" False Null
 
 
 
@@ -38,8 +52,7 @@ init =
 
 
 type Msg
-    = Title String
-    | Email String
+    = Email String
     | ToggleNotifications
     | Submit
 
@@ -47,9 +60,6 @@ type Msg
 update : Msg -> Model -> Model
 update msg model =
     case msg of
-        Title newTitle ->
-            { model | title = newTitle }
-
         Email newEmail ->
             { model | email = newEmail }
 
@@ -86,46 +96,52 @@ validateEmail model =
         Error "Sorry, that email address isn't valid. Please try again."
 
 
-checkbox : msg -> Html msg
-checkbox model =
-    label []
-        [ input [ type_ "checkbox" ] []
-        ]
-
-
 viewTitle : Model -> Html Msg
 viewTitle model =
+    let
+        flags =
+            model.flags
+    in
     div [ class "column is-mobile" ]
         [ div [ class "field" ]
             [ h1 [ class "newsletter-headline" ]
-                [ text "Sign up for Kano Updates" ]
+                [ text flags.title ]
             , h4 [ class "newsletter-subheadline" ]
-                [ text "You'll also receive the latest news, offers and projects straight to your inbox." ]
+                [ text flags.description ]
             ]
         ]
 
 
 viewSignupContent : Model -> Html Msg
 viewSignupContent model =
+    let
+        flags =
+            model.flags
+    in
     div [ class "column is-mobile" ]
         [ div [ class "field" ]
             [ div [ class "newsletterSubmission" ]
                 [ div [ class "formInput" ]
                     [ viewValidation model
-                    , input [ class "input email", placeholder "Enter your email", value model.email, onInput Email ] []
+                    , input [ type_ "hidden", name "campaign", value flags.campaign ] []
+                    , input [ class "input email", name "email", placeholder "Enter your email", value model.email, onInput Email ] []
                     , button [ class "button", onClick Submit ]
-                        [ text "SIGN ME UP" ]
+                        [ text flags.button ]
                     ]
                 ]
-            , label [ class "checkbox-control" ]
-                [ input [ class "checkbox", type_ "checkbox", onClick ToggleNotifications ] []
-                , p [ class "checkbox-message" ]
-                    [ text "By ticking here you are opting-in to receive the latest news, offers, promotions and competitions from Kano. "
-                    , a [ href "https://kano.me/privacy-policy/uk" ]
-                        [ text "Take a peak" ]
-                    , p [ class "checkbox-message" ] [ text "at how we are using your data." ]
-                    ]
-                ]
+            , case flags.checkbox of
+                True ->
+                    div [ class "consent-checkbox" ]
+                        [ input [ class "checkbox", type_ "checkbox", name "opt_in", id "opt_in", onClick ToggleNotifications ] []
+                        , label [ attribute "for" "opt_in" ]
+                            [ text "By ticking here you are opting-in to receive the latest news, offers, promotions and competitions from Kano. "
+                            , a [ href "https://kano.me/privacy-policy/uk" ] [ text "Take a peak " ]
+                            , text "at how we are using your data."
+                            ]
+                        ]
+
+                False ->
+                    text ""
             ]
         ]
 

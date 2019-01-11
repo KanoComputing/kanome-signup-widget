@@ -120,6 +120,7 @@ body {
   text-transform: none;
   text-align: left;
   max-width: 400px;
+  margin: 0px;
 }
 
 .button {
@@ -141,13 +142,24 @@ body {
   vertical-align: middle;
 }
 
-.checkbox-control {
+.consent-checkbox {
   display: inline-flex;
   position: relative;
   margin-bottom: 10px;
   padding-top: 5px;
   max-width: 450px;
   padding-left: 12px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  line-height: 16px;
+  display: inline-block;
+  color: #9fa4a8;
+  padding-left: 10px;
+}
+.consent-checkbox a {
+  text-decoration: underline;
+  color: #9fa4a8;
 }
 
 .checkbox {
@@ -157,21 +169,11 @@ body {
   border-radius: 3px;
 }
 
-.checkbox-message {
-  padding: 0px;
-  margin: 0px;
-  font-size: 14px;
-  line-height: 16px;
-  display: inline-block;
-  color: #9fa4a8;
-  text-align: left;
-  padding-left: 10px;
+@media (min-width: 900px) {
+  .consent-checkbox {
+    text-align: left;
+  }
 }
-.checkbox-message a {
-  text-decoration: underline;
-  color: #9fa4a8;
-}
-
 @media (min-width: 900px) {
   .container {
     padding: 10px;
@@ -179,11 +181,6 @@ body {
 }
 @media (min-width: 769px) and (max-width: 900px) {
   .formInput {
-    text-align: right;
-  }
-}
-@media (min-width: 769px) and (max-width: 900px) {
-  .checkbox-message {
     text-align: right;
   }
 }
@@ -212,17 +209,29 @@ body {
     padding-bottom: 30px;
   }
 }
-@media all and (max-width: 650px) {
-  .newsletter-headline {
-    padding: 20px;
-  }
-  .newsletter-headline .newsletter-subheadline {
-    padding: 20px;
+@media (min-width: 769px) and (max-width: 900px) {
+  .consent-checkbox {
+    text-align: right;
   }
 }
-@media all and (max-width: 650px) {
+@media all and (max-width: 769px) {
+  .newsletter-headline {
+    padding-left: 20px;
+  }
+}
+@media all and (max-width: 769px) {
   .newsletter-subheadline {
-    padding: 20px;
+    padding-left: 20px;
+  }
+}
+@media all and (max-width: 769px) {
+  .message {
+    padding-left: 20px;
+  }
+}
+@media all and (max-width: 769px) {
+  .checkbox-control {
+    text-align: left;
   }
 }
 
