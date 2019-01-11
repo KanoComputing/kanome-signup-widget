@@ -7,7 +7,22 @@ import Html.Events exposing (onClick, onInput)
 
 
 main =
-    Browser.sandbox { init = init, update = update, view = view }
+    Browser.element
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = \_ -> Sub.none
+        }
+
+
+init : Maybe Flags -> ( Model, Cmd Msg )
+init flags =
+    case flags of
+        Nothing ->
+            ( initModel initFlags, Cmd.none )
+
+        Just flags_ ->
+            ( initModel flags_, Cmd.none )
 
 
 
@@ -42,9 +57,9 @@ type ValidationResults
     | ValidationOK
 
 
-init : Model
-init =
-    Model initFlags "" False Null
+initModel : Flags -> Model
+initModel flags =
+    Model flags "" False Null
 
 
 
@@ -57,17 +72,17 @@ type Msg
     | Submit
 
 
-update : Msg -> Model -> Model
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         Email newEmail ->
-            { model | email = newEmail }
+            ( { model | email = newEmail }, Cmd.none )
 
         ToggleNotifications ->
-            { model | notifications = not model.notifications }
+            ( { model | notifications = not model.notifications }, Cmd.none )
 
         Submit ->
-            { model | validationResults = validateEmail model }
+            ( { model | validationResults = validateEmail model }, Cmd.none )
 
 
 
