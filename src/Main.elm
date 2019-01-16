@@ -1,9 +1,12 @@
 module Main exposing (Model, Msg(..), init, main, update, view)
 
 import Browser
-import Html exposing (Attribute, Html, a, button, div, fieldset, form, h1, h2, h4, input, label, p, section, text)
+import Html exposing (Attribute, Html, a, button, div, fieldset, form, h1, h2, h4, input, label, p, pre, section, text, textarea)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick, onInput)
+import Http
+import Json.Decode as Decode
+import Json.Encode as Encode
 
 
 main =
@@ -48,6 +51,13 @@ type alias Model =
     , email : String
     , notifications : Bool
     , validationResults : ValidationResults
+    , error : String
+    }
+
+
+type alias Signup =
+    { email : String
+    , notifications : Bool
     }
 
 
@@ -59,7 +69,31 @@ type ValidationResults
 
 initModel : Flags -> Model
 initModel flags =
-    Model flags "" False Null
+    Model flags "" False Null ""
+
+
+signupEncoder : Signup -> Encode.Value
+signupEncoder signup =
+    Encode.object
+        [ ( "email", Encode.string signup.email )
+        , ( "notifications", Encode.bool signup.notifications )
+        ]
+
+
+modelToJson : Model -> String
+modelToJson model =
+    let
+        signup =
+            Signup model.email model.notifications
+    in
+    Encode.encode 2 (signupEncoder signup)
+
+
+signupDecoder : Decode.Decoder Signup
+signupDecoder =
+    Decode.map2 Signup
+        (Decode.field "email" Decode.string)
+        (Decode.field "notification" Decode.bool)
 
 
 
@@ -70,6 +104,7 @@ type Msg
     = Email String
     | ToggleNotifications
     | Submit
+    | Submitted (Result Http.Error String)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -83,6 +118,21 @@ update msg model =
 
         Submit ->
             ( { model | validationResults = validateEmail model }, Cmd.none )
+
+        Submitted (Ok _) ->
+            ( initModel model.flags, Cmd.none )
+
+        Submitted (Err _) ->
+            ( { model | error = "Oops, there is an error, please try again later." }, Cmd.none )
+
+
+createPostRequest : Signup -> Cmd Msg
+createPostRequest signup =
+    Http.post
+        { body = Http.jsonBody <| signupEncoder signup
+        , expect = Http.expectString Submitted
+        , url = "/api/signup"
+        }
 
 
 
@@ -138,6 +188,7 @@ viewSignupContent model =
             [ div [ class "newsletterSubmission" ]
                 [ div [ class "formInput" ]
                     [ viewValidation model
+                    , viewSubmission model.error
                     , input [ type_ "hidden", name "campaign", value flags.campaign ] []
                     , input [ class "input email", name "email", placeholder "Enter your email", value model.email, onInput Email ] []
                     , button [ class "button", onClick Submit ]
@@ -172,3 +223,8 @@ view model =
                 ]
             ]
         ]
+
+
+viewSubmission : String -> Html Msg
+viewSubmission error =
+    text error
