@@ -1,7 +1,7 @@
 module Main exposing (Model, Msg(..), init, main, update, view)
 
 import Browser
-import Html exposing (Attribute, Html, a, button, div, fieldset, form, h1, h2, h4, input, label, p, pre, section, text, textarea)
+import Html exposing (Attribute, Html, a, button, div, fieldset, form, h1, h2, h4, input, label, p, section, text, textarea)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick, onInput)
 import Http
@@ -117,7 +117,21 @@ update msg model =
             ( { model | notifications = not model.notifications }, Cmd.none )
 
         Submit ->
-            ( { model | validationResults = validateEmail model }, Cmd.none )
+            let
+                validated =
+                    validateEmail model
+            in
+            ( { model | validationResults = validated }
+            , case validated of
+                Null ->
+                    createPostRequest <| Signup model.email model.notifications
+
+                ValidationOK ->
+                    createPostRequest <| Signup model.email model.notifications
+
+                Error _ ->
+                    Cmd.none
+            )
 
         Submitted (Ok _) ->
             ( initModel model.flags, Cmd.none )
@@ -159,6 +173,11 @@ validateEmail model =
 
     else
         Error "Sorry, that email address isn't valid. Please try again."
+
+
+viewSubmission : String -> Html Msg
+viewSubmission error =
+    text error
 
 
 viewTitle : Model -> Html Msg
@@ -223,8 +242,3 @@ view model =
                 ]
             ]
         ]
-
-
-viewSubmission : String -> Html Msg
-viewSubmission error =
-    text error
