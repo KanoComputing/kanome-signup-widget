@@ -4491,13 +4491,13 @@ var author$project$Main$Flags = F5(
 	});
 var elm$core$Basics$False = {$: 'False'};
 var author$project$Main$initFlags = A5(author$project$Main$Flags, 'newsletter', 'Sign up for Kano updates', 'You\'ll also receive the latest news, offers and projects straight to your inbox.', 'SIGN ME UP', false);
-var author$project$Main$Model = F5(
-	function (flags, email, notifications, validationResults, error) {
-		return {email: email, error: error, flags: flags, notifications: notifications, validationResults: validationResults};
+var author$project$Main$Model = F6(
+	function (flags, email, notifications, validationResults, error, success) {
+		return {email: email, error: error, flags: flags, notifications: notifications, success: success, validationResults: validationResults};
 	});
 var author$project$Main$Null = {$: 'Null'};
 var author$project$Main$initModel = function (flags) {
-	return A5(author$project$Main$Model, flags, '', false, author$project$Main$Null, '');
+	return A6(author$project$Main$Model, flags, '', false, author$project$Main$Null, '', '');
 };
 var elm$core$Basics$True = {$: 'True'};
 var elm$core$Result$isOk = function (result) {
@@ -5954,7 +5954,9 @@ var author$project$Main$update = F2(
 			default:
 				if (msg.a.$ === 'Ok') {
 					return _Utils_Tuple2(
-						author$project$Main$initModel(model.flags),
+						_Utils_update(
+							model,
+							{success: 'Thank you for your subscription'}),
 						elm$core$Platform$Cmd$none);
 				} else {
 					return _Utils_Tuple2(
@@ -5987,8 +5989,13 @@ var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 };
 var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
-var author$project$Main$viewSubmission = function (error) {
+var author$project$Main$viewErrorMessage = function (model) {
+	var error = model;
 	return elm$html$Html$text(error);
+};
+var author$project$Main$viewSuccessMessage = function (model) {
+	var success = model;
+	return elm$html$Html$text(success);
 };
 var elm$html$Html$p = _VirtualDom_node('p');
 var elm$html$Html$Attributes$stringProperty = F2(
@@ -6034,7 +6041,7 @@ var author$project$Main$viewValidation = function (model) {
 					]),
 				_List_fromArray(
 					[
-						elm$html$Html$text('Thank you for your subscription!')
+						elm$html$Html$text('')
 					]));
 	}
 };
@@ -6146,8 +6153,9 @@ var author$project$Main$viewSignupContent = function (model) {
 									]),
 								_List_fromArray(
 									[
+										author$project$Main$viewErrorMessage(model.error),
+										author$project$Main$viewSuccessMessage(model.success),
 										author$project$Main$viewValidation(model),
-										author$project$Main$viewSubmission(model.error),
 										A2(
 										elm$html$Html$input,
 										_List_fromArray(

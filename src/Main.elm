@@ -1,4 +1,4 @@
-module Main exposing (Flags, Model, Msg(..), Signup, ValidationResults(..), createPostRequest, init, initFlags, initModel, main, modelToJson, signupDecoder, signupEncoder, update, validateEmail, view, viewSignupContent, viewSubmission, viewTitle, viewValidation)
+module Main exposing (Flags, Model, Msg(..), Signup, ValidationResults(..), createPostRequest, init, initFlags, initModel, main, modelToJson, signupDecoder, signupEncoder, update, validateEmail, view, viewErrorMessage, viewSignupContent, viewSuccessMessage, viewTitle, viewValidation)
 
 import Browser
 import Html exposing (Attribute, Html, a, button, div, fieldset, form, h1, h2, h4, input, label, p, section, text, textarea)
@@ -52,6 +52,7 @@ type alias Model =
     , notifications : Bool
     , validationResults : ValidationResults
     , error : String
+    , success : String
     }
 
 
@@ -69,7 +70,7 @@ type ValidationResults
 
 initModel : Flags -> Model
 initModel flags =
-    Model flags "" False Null ""
+    Model flags "" False Null "" ""
 
 
 signupEncoder : Signup -> Encode.Value
@@ -134,7 +135,7 @@ update msg model =
             )
 
         Submitted (Ok _) ->
-            ( initModel model.flags, Cmd.none )
+            ( { model | success = "Thank you for your subscription" }, Cmd.none )
 
         Submitted (Err _) ->
             ( { model | error = "Oops, there is an error, please try again later." }, Cmd.none )
@@ -163,7 +164,7 @@ viewValidation model =
             p [ class "message" ] [ text "Sorry, that email address isn't valid. Please try again." ]
 
         ValidationOK ->
-            p [ class "message" ] [ text "Thank you for your subscription!" ]
+            p [ class "message" ] [ text "" ]
 
 
 validateEmail : Model -> ValidationResults
@@ -175,9 +176,18 @@ validateEmail model =
         Error "Sorry, that email address isn't valid. Please try again."
 
 
-viewSubmission : String -> Html Msg
-viewSubmission error =
-    text error
+viewErrorMessage : String -> Html Msg
+viewErrorMessage model =
+    case model of
+        error ->
+            text error
+
+
+viewSuccessMessage : String -> Html Msg
+viewSuccessMessage model =
+    case model of
+        success ->
+            text success
 
 
 viewTitle : Model -> Html Msg
@@ -206,8 +216,9 @@ viewSignupContent model =
         [ div [ class "field" ]
             [ div [ class "newsletterSubmission" ]
                 [ div [ class "formInput" ]
-                    [ viewValidation model
-                    , viewSubmission model.error
+                    [ viewErrorMessage model.error
+                    , viewSuccessMessage model.success
+                    , viewValidation model
                     , input [ type_ "hidden", name "campaign", value flags.campaign ] []
                     , input [ class "input email", name "email", placeholder "Enter your email", value model.email, onInput Email ] []
                     , button [ class "button", onClick Submit ]

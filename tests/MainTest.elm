@@ -1,4 +1,4 @@
-module MainTest exposing (signupMain, testMain)
+module MainTest exposing (flagsTest, signupTest)
 
 import Expect exposing (Expectation)
 import Fuzz exposing (Fuzzer, int, list, string)
@@ -8,8 +8,8 @@ import Main exposing (..)
 import Test exposing (..)
 
 
-testMain : Test
-testMain =
+flagsTest : Test
+flagsTest =
     describe "init flags"
         [ test "init flags returns nothing" <|
             \_ ->
@@ -34,8 +34,8 @@ testMain =
         ]
 
 
-signupMain : Test
-signupMain =
+signupTest : Test
+signupTest =
     describe "test encoder and decoder"
         [ test "conversion between signupDecoder/signupEncoder" <|
             \_ ->
@@ -51,7 +51,5 @@ signupMain =
                 in
                 Decode.decodeValue signupDecoder json
                     |> Expect.equal
-                        (Ok
-                            { email = "test@test.com", notifications = True }
-                        )
+                        (Ok signup)
         ]

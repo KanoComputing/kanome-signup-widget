@@ -2465,15 +2465,28 @@ function _Test_runThunk(thunk)
   }
 }
 var author$project$Console$Text$UseColor = {$: 'UseColor'};
-var author$project$Main$Signup = F2(
-	function (email, notifications) {
-		return {email: email, notifications: notifications};
+var author$project$Main$Flags = F5(
+	function (campaign, title, description, button, checkbox) {
+		return {button: button, campaign: campaign, checkbox: checkbox, description: description, title: title};
 	});
-var elm$core$Array$branchFactor = 32;
-var elm$core$Array$Array_elm_builtin = F4(
-	function (a, b, c, d) {
-		return {$: 'Array_elm_builtin', a: a, b: b, c: c, d: d};
+var elm$core$Basics$False = {$: 'False'};
+var author$project$Main$initFlags = A5(author$project$Main$Flags, 'newsletter', 'Sign up for Kano updates', 'You\'ll also receive the latest news, offers and projects straight to your inbox.', 'SIGN ME UP', false);
+var author$project$Main$Model = F5(
+	function (flags, email, notifications, validationResults, error) {
+		return {email: email, error: error, flags: flags, notifications: notifications, validationResults: validationResults};
 	});
+var author$project$Main$Null = {$: 'Null'};
+var author$project$Main$initModel = function (flags) {
+	return A5(author$project$Main$Model, flags, '', false, author$project$Main$Null, '');
+};
+var elm$core$Basics$True = {$: 'True'};
+var elm$core$Result$isOk = function (result) {
+	if (result.$ === 'Ok') {
+		return true;
+	} else {
+		return false;
+	}
+};
 var elm$core$Basics$EQ = {$: 'EQ'};
 var elm$core$Basics$GT = {$: 'GT'};
 var elm$core$Basics$LT = {$: 'LT'};
@@ -2554,6 +2567,11 @@ var elm$core$Array$foldr = F3(
 var elm$core$Array$toList = function (array) {
 	return A3(elm$core$Array$foldr, elm$core$List$cons, _List_Nil, array);
 };
+var elm$core$Array$branchFactor = 32;
+var elm$core$Array$Array_elm_builtin = F4(
+	function (a, b, c, d) {
+		return {$: 'Array_elm_builtin', a: a, b: b, c: c, d: d};
+	});
 var elm$core$Basics$ceiling = _Basics_ceiling;
 var elm$core$Basics$fdiv = _Basics_fdiv;
 var elm$core$Basics$logBase = F2(
@@ -2678,7 +2696,6 @@ var elm$core$Array$builderToArray = F2(
 				builder.tail);
 		}
 	});
-var elm$core$Basics$False = {$: 'False'};
 var elm$core$Basics$idiv = _Basics_idiv;
 var elm$core$Basics$lt = _Utils_lt;
 var elm$core$Elm$JsArray$initialize = _JsArray_initialize;
@@ -2730,14 +2747,6 @@ var elm$core$Result$Err = function (a) {
 };
 var elm$core$Result$Ok = function (a) {
 	return {$: 'Ok', a: a};
-};
-var elm$core$Basics$True = {$: 'True'};
-var elm$core$Result$isOk = function (result) {
-	if (result.$ === 'Ok') {
-		return true;
-	} else {
-		return false;
-	}
 };
 var elm$json$Json$Decode$Failure = F2(
 	function (a, b) {
@@ -2944,43 +2953,20 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 			}
 		}
 	});
-var elm$json$Json$Decode$bool = _Json_decodeBool;
-var elm$json$Json$Decode$field = _Json_decodeField;
-var elm$json$Json$Decode$map2 = _Json_map2;
-var elm$json$Json$Decode$string = _Json_decodeString;
-var author$project$Main$signupDecoder = A3(
-	elm$json$Json$Decode$map2,
-	author$project$Main$Signup,
-	A2(elm$json$Json$Decode$field, 'email', elm$json$Json$Decode$string),
-	A2(elm$json$Json$Decode$field, 'notifications', elm$json$Json$Decode$bool));
-var elm$json$Json$Encode$bool = _Json_wrap;
-var elm$json$Json$Encode$object = function (pairs) {
-	return _Json_wrap(
-		A3(
-			elm$core$List$foldl,
-			F2(
-				function (_n0, obj) {
-					var k = _n0.a;
-					var v = _n0.b;
-					return A3(_Json_addField, k, v, obj);
-				}),
-			_Json_emptyObject(_Utils_Tuple0),
-			pairs));
+var elm$core$Platform$Cmd$batch = _Platform_batch;
+var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
+var author$project$Main$init = function (flags) {
+	if (flags.$ === 'Nothing') {
+		return _Utils_Tuple2(
+			author$project$Main$initModel(author$project$Main$initFlags),
+			elm$core$Platform$Cmd$none);
+	} else {
+		var flags_ = flags.a;
+		return _Utils_Tuple2(
+			author$project$Main$initModel(flags_),
+			elm$core$Platform$Cmd$none);
+	}
 };
-var elm$json$Json$Encode$string = _Json_wrap;
-var author$project$Main$signupEncoder = function (signup) {
-	return elm$json$Json$Encode$object(
-		_List_fromArray(
-			[
-				_Utils_Tuple2(
-				'email',
-				elm$json$Json$Encode$string(signup.email)),
-				_Utils_Tuple2(
-				'notifications',
-				elm$json$Json$Encode$bool(signup.notifications))
-			]));
-};
-var elm$json$Json$Decode$decodeValue = _Json_run;
 var elm$core$Basics$not = _Basics_not;
 var elm$core$String$contains = _String_contains;
 var elm$core$String$toFloat = _String_toFloat;
@@ -3445,53 +3431,7 @@ var elm_explorations$test$Test$test = F2(
 						]);
 				}));
 	});
-var author$project$MainTest$signupMain = A2(
-	elm_explorations$test$Test$describe,
-	'test encoder and decoder',
-	_List_fromArray(
-		[
-			A2(
-			elm_explorations$test$Test$test,
-			'conversion between signupDecoder/signupEncoder',
-			function (_n0) {
-				var signup = A2(author$project$Main$Signup, 'test@test.com', true);
-				var json = author$project$Main$signupEncoder(signup);
-				var decoded = A2(elm$json$Json$Decode$decodeValue, author$project$Main$signupDecoder, json);
-				return A2(
-					elm_explorations$test$Expect$equal,
-					elm$core$Result$Ok(
-						{email: 'test@test.com', notifications: true}),
-					A2(elm$json$Json$Decode$decodeValue, author$project$Main$signupDecoder, json));
-			})
-		]));
-var author$project$Main$Flags = F5(
-	function (campaign, title, description, button, checkbox) {
-		return {button: button, campaign: campaign, checkbox: checkbox, description: description, title: title};
-	});
-var author$project$Main$initFlags = A5(author$project$Main$Flags, 'newsletter', 'Sign up for Kano updates', 'You\'ll also receive the latest news, offers and projects straight to your inbox.', 'SIGN ME UP', false);
-var author$project$Main$Model = F5(
-	function (flags, email, notifications, validationResults, error) {
-		return {email: email, error: error, flags: flags, notifications: notifications, validationResults: validationResults};
-	});
-var author$project$Main$Null = {$: 'Null'};
-var author$project$Main$initModel = function (flags) {
-	return A5(author$project$Main$Model, flags, '', false, author$project$Main$Null, '');
-};
-var elm$core$Platform$Cmd$batch = _Platform_batch;
-var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
-var author$project$Main$init = function (flags) {
-	if (flags.$ === 'Nothing') {
-		return _Utils_Tuple2(
-			author$project$Main$initModel(author$project$Main$initFlags),
-			elm$core$Platform$Cmd$none);
-	} else {
-		var flags_ = flags.a;
-		return _Utils_Tuple2(
-			author$project$Main$initModel(flags_),
-			elm$core$Platform$Cmd$none);
-	}
-};
-var author$project$MainTest$testMain = A2(
+var author$project$MainTest$flagsTest = A2(
 	elm_explorations$test$Test$describe,
 	'init flags',
 	_List_fromArray(
@@ -3514,6 +3454,65 @@ var author$project$MainTest$testMain = A2(
 					elm$core$Maybe$Just(okFlags));
 				var initOK = _n3.a;
 				return A2(elm_explorations$test$Expect$equal, initOK.flags, okFlags);
+			})
+		]));
+var author$project$Main$Signup = F2(
+	function (email, notifications) {
+		return {email: email, notifications: notifications};
+	});
+var elm$json$Json$Decode$bool = _Json_decodeBool;
+var elm$json$Json$Decode$field = _Json_decodeField;
+var elm$json$Json$Decode$map2 = _Json_map2;
+var elm$json$Json$Decode$string = _Json_decodeString;
+var author$project$Main$signupDecoder = A3(
+	elm$json$Json$Decode$map2,
+	author$project$Main$Signup,
+	A2(elm$json$Json$Decode$field, 'email', elm$json$Json$Decode$string),
+	A2(elm$json$Json$Decode$field, 'notifications', elm$json$Json$Decode$bool));
+var elm$json$Json$Encode$bool = _Json_wrap;
+var elm$json$Json$Encode$object = function (pairs) {
+	return _Json_wrap(
+		A3(
+			elm$core$List$foldl,
+			F2(
+				function (_n0, obj) {
+					var k = _n0.a;
+					var v = _n0.b;
+					return A3(_Json_addField, k, v, obj);
+				}),
+			_Json_emptyObject(_Utils_Tuple0),
+			pairs));
+};
+var elm$json$Json$Encode$string = _Json_wrap;
+var author$project$Main$signupEncoder = function (signup) {
+	return elm$json$Json$Encode$object(
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'email',
+				elm$json$Json$Encode$string(signup.email)),
+				_Utils_Tuple2(
+				'notifications',
+				elm$json$Json$Encode$bool(signup.notifications))
+			]));
+};
+var elm$json$Json$Decode$decodeValue = _Json_run;
+var author$project$MainTest$signupTest = A2(
+	elm_explorations$test$Test$describe,
+	'test encoder and decoder',
+	_List_fromArray(
+		[
+			A2(
+			elm_explorations$test$Test$test,
+			'conversion between signupDecoder/signupEncoder',
+			function (_n0) {
+				var signup = A2(author$project$Main$Signup, 'test@test.com', true);
+				var json = author$project$Main$signupEncoder(signup);
+				var decoded = A2(elm$json$Json$Decode$decodeValue, author$project$Main$signupDecoder, json);
+				return A2(
+					elm_explorations$test$Expect$equal,
+					elm$core$Result$Ok(signup),
+					A2(elm$json$Json$Decode$decodeValue, author$project$Main$signupDecoder, json));
 			})
 		]));
 var author$project$Test$Reporter$Reporter$ConsoleReport = function (a) {
@@ -6370,7 +6369,7 @@ var elm_explorations$test$Test$concat = function (tests) {
 		}
 	}
 };
-var author$project$Test$Generated$Main2647061489$main = A2(
+var author$project$Test$Generated$Main104432277$main = A2(
 	author$project$Test$Runner$Node$run,
 	{
 		paths: _List_fromArray(
@@ -6378,7 +6377,7 @@ var author$project$Test$Generated$Main2647061489$main = A2(
 		processes: 4,
 		report: author$project$Test$Reporter$Reporter$ConsoleReport(author$project$Console$Text$UseColor),
 		runs: elm$core$Maybe$Nothing,
-		seed: 13224102457158
+		seed: 114624775519892
 	},
 	elm_explorations$test$Test$concat(
 		_List_fromArray(
@@ -6387,12 +6386,12 @@ var author$project$Test$Generated$Main2647061489$main = A2(
 				elm_explorations$test$Test$describe,
 				'MainTest',
 				_List_fromArray(
-					[author$project$MainTest$signupMain, author$project$MainTest$testMain]))
+					[author$project$MainTest$flagsTest, author$project$MainTest$signupTest]))
 			])));
-_Platform_export({'Test':{'Generated':{'Main2647061489':{'init':author$project$Test$Generated$Main2647061489$main(elm$json$Json$Decode$int)(0)}}}});}(this));
+_Platform_export({'Test':{'Generated':{'Main104432277':{'init':author$project$Test$Generated$Main104432277$main(elm$json$Json$Decode$int)(0)}}}});}(this));
 return this.Elm;
 })({});
-var pipeFilename = "/tmp/elm_test-2365.sock";
+var pipeFilename = "/tmp/elm_test-2760.sock";
 // Make sure necessary things are defined.
 if (typeof Elm === "undefined") {
   throw "test runner config error: Elm is not defined. Make sure you provide a file compiled by Elm!";
