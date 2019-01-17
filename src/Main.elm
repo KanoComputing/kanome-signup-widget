@@ -1,4 +1,4 @@
-module Main exposing (Model, Msg(..), init, main, update, view)
+module Main exposing (Flags, Model, Msg(..), Signup, ValidationResults(..), createPostRequest, init, initFlags, initModel, main, modelToJson, signupDecoder, signupEncoder, update, validateEmail, view, viewSignupContent, viewSubmission, viewTitle, viewValidation)
 
 import Browser
 import Html exposing (Attribute, Html, a, button, div, fieldset, form, h1, h2, h4, input, label, p, section, text, textarea)
@@ -93,7 +93,7 @@ signupDecoder : Decode.Decoder Signup
 signupDecoder =
     Decode.map2 Signup
         (Decode.field "email" Decode.string)
-        (Decode.field "notification" Decode.bool)
+        (Decode.field "notifications" Decode.bool)
 
 
 
