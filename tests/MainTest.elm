@@ -1,4 +1,4 @@
-module MainTest exposing (flagsTest, signupTest)
+module MainTest exposing (flagsTest, signupTest, validateCredentials)
 
 import Expect exposing (Expectation)
 import Fuzz exposing (Fuzzer, int, list, string)
@@ -52,4 +52,27 @@ signupTest =
                 Decode.decodeValue signupDecoder json
                     |> Expect.equal
                         (Ok signup)
+        ]
+
+
+validateCredentials : Test
+validateCredentials =
+    describe "Email test"
+        [ test "Test that model accepts valid credentials" <|
+            \_ ->
+                let
+                    credential =
+                        "test@test.com"
+
+                    model =
+                        initModel initFlags
+
+                    model_ =
+                        { model | email = credential }
+
+                    validated =
+                        validateEmail model_
+                in
+                validateEmail model_
+                    |> Expect.equal ValidationOK
         ]

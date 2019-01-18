@@ -2471,13 +2471,13 @@ var author$project$Main$Flags = F5(
 	});
 var elm$core$Basics$False = {$: 'False'};
 var author$project$Main$initFlags = A5(author$project$Main$Flags, 'newsletter', 'Sign up for Kano updates', 'You\'ll also receive the latest news, offers and projects straight to your inbox.', 'SIGN ME UP', false);
-var author$project$Main$Model = F5(
-	function (flags, email, notifications, validationResults, error) {
-		return {email: email, error: error, flags: flags, notifications: notifications, validationResults: validationResults};
+var author$project$Main$Model = F6(
+	function (flags, email, notifications, validationResults, error, success) {
+		return {email: email, error: error, flags: flags, notifications: notifications, success: success, validationResults: validationResults};
 	});
 var author$project$Main$Null = {$: 'Null'};
 var author$project$Main$initModel = function (flags) {
-	return A5(author$project$Main$Model, flags, '', false, author$project$Main$Null, '');
+	return A6(author$project$Main$Model, flags, '', false, author$project$Main$Null, '', '');
 };
 var elm$core$Basics$True = {$: 'True'};
 var elm$core$Result$isOk = function (result) {
@@ -3513,6 +3513,34 @@ var author$project$MainTest$signupTest = A2(
 					elm_explorations$test$Expect$equal,
 					elm$core$Result$Ok(signup),
 					A2(elm$json$Json$Decode$decodeValue, author$project$Main$signupDecoder, json));
+			})
+		]));
+var author$project$Main$ValidationOK = {$: 'ValidationOK'};
+var author$project$Main$Error = function (a) {
+	return {$: 'Error', a: a};
+};
+var author$project$Main$validateEmail = function (model) {
+	return (A2(elm$core$String$contains, '@', model.email) && A2(elm$core$String$contains, '.', model.email)) ? author$project$Main$ValidationOK : author$project$Main$Error('Sorry, that email address isn\'t valid. Please try again.');
+};
+var author$project$MainTest$validateCredentials = A2(
+	elm_explorations$test$Test$describe,
+	'Email test',
+	_List_fromArray(
+		[
+			A2(
+			elm_explorations$test$Test$test,
+			'Test that model accepts valid credentials',
+			function (_n0) {
+				var model = author$project$Main$initModel(author$project$Main$initFlags);
+				var credential = 'test@test.com';
+				var model_ = _Utils_update(
+					model,
+					{email: credential});
+				var validated = author$project$Main$validateEmail(model_);
+				return A2(
+					elm_explorations$test$Expect$equal,
+					author$project$Main$ValidationOK,
+					author$project$Main$validateEmail(model_));
 			})
 		]));
 var author$project$Test$Reporter$Reporter$ConsoleReport = function (a) {
@@ -6369,7 +6397,7 @@ var elm_explorations$test$Test$concat = function (tests) {
 		}
 	}
 };
-var author$project$Test$Generated$Main104432277$main = A2(
+var author$project$Test$Generated$Main1753917640$main = A2(
 	author$project$Test$Runner$Node$run,
 	{
 		paths: _List_fromArray(
@@ -6377,7 +6405,7 @@ var author$project$Test$Generated$Main104432277$main = A2(
 		processes: 4,
 		report: author$project$Test$Reporter$Reporter$ConsoleReport(author$project$Console$Text$UseColor),
 		runs: elm$core$Maybe$Nothing,
-		seed: 114624775519892
+		seed: 117572072934272
 	},
 	elm_explorations$test$Test$concat(
 		_List_fromArray(
@@ -6386,12 +6414,12 @@ var author$project$Test$Generated$Main104432277$main = A2(
 				elm_explorations$test$Test$describe,
 				'MainTest',
 				_List_fromArray(
-					[author$project$MainTest$flagsTest, author$project$MainTest$signupTest]))
+					[author$project$MainTest$flagsTest, author$project$MainTest$signupTest, author$project$MainTest$validateCredentials]))
 			])));
-_Platform_export({'Test':{'Generated':{'Main104432277':{'init':author$project$Test$Generated$Main104432277$main(elm$json$Json$Decode$int)(0)}}}});}(this));
+_Platform_export({'Test':{'Generated':{'Main1753917640':{'init':author$project$Test$Generated$Main1753917640$main(elm$json$Json$Decode$int)(0)}}}});}(this));
 return this.Elm;
 })({});
-var pipeFilename = "/tmp/elm_test-2760.sock";
+var pipeFilename = "/tmp/elm_test-3344.sock";
 // Make sure necessary things are defined.
 if (typeof Elm === "undefined") {
   throw "test runner config error: Elm is not defined. Make sure you provide a file compiled by Elm!";
