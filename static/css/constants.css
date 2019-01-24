@@ -1,0 +1,148 @@
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_bold_italic-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_bold_italic-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_bold_italic-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_bold_italic-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_bold_italic-webfont.svg#bariol_boldbold_italic) format("svg");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_regular-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_regular-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_regular-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_regular-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_regular-webfont.svg#bariol_regularregular) format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_regular_italic-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_regular_italic-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_regular_italic-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_regular_italic-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_regular_italic-webfont.svg#bariolregular_italic) format("svg");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_light-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_light-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_light-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_light-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_light-webfont.svg#bariol_lightlight) format("svg");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_light_italic-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_light_italic-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_light_italic-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_light_italic-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_light_italic-webfont.svg#bariollight_italic) format("svg");
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_thin-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_thin-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_thin-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_thin-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_thin-webfont.svg#bariolthin) format("svg");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: bariol;
+  src: url(https://cdn.kano.me/fonts/bariol_thin_italic-webfont.eot);
+  src: url(https://cdn.kano.me/fonts/bariol_thin_italic-webfont.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/bariol_thin_italic-webfont.woff) format("woff"), url(https://cdn.kano.me/fonts/bariol_thin_italic-webfont.ttf) format("truetype"), url(https://cdn.kano.me/fonts/bariol_thin_italic-webfont.svg#bariolthin_italic) format("svg");
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: bemioregular;
+  src: url(https://cdn.kano.me/fonts/bemio-regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: vagbold;
+  src: url(https://cdn.kano.me/fonts/vag-rounded.eot);
+  src: url(https://cdn.kano.me/fonts/vag-rounded.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/vag-rounded.ttf) format("truetype"), url(https://cdn.kano.me/fonts/vag-rounded.otf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+.font-impact {
+  font-family: "vagbold", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "vagbold", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-family: vagbold, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: #292f35;
+}
+p {
+  font-family: "bariol", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+.font-56 {
+  font-size: 3.5rem;
+  line-height: 4rem;
+}
+.font-48 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+}
+.font-40 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+.font-32 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+.font-24 {
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+}
+.font-20 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.font-16 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.font-14 {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
+.font-12 {
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+}
+.font-impact,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: vagbold, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
+  color: #292f35;
+}
+p {
+  font-family: bariol, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+section {
+  -ms-flex: none;
+  flex: none;
+}

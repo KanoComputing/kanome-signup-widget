@@ -198,7 +198,7 @@ viewTitle model =
     in
     div [ class "column is-mobile" ]
         [ div [ class "field" ]
-            [ h1 [ class "newsletter-headline" ]
+            [ h2 [ class "newsletter-headline" ]
                 [ text flags.title ]
             , h4 [ class "newsletter-subheadline" ]
                 [ text flags.description ]
@@ -221,14 +221,16 @@ viewSignupContent model =
                     , viewValidation model
                     , input [ type_ "hidden", name "campaign", value flags.campaign ] []
                     , input [ class "input email", name "email", placeholder "Enter your email", value model.email, onInput Email ] []
-                    , button [ class "button", onClick Submit ]
+                    , button [ class "kano-btn", onClick Submit ]
                         [ text flags.button ]
                     ]
                 ]
             , case flags.checkbox of
                 True ->
                     div [ class "consent-checkbox" ]
-                        [ input [ class "checkbox", type_ "checkbox", name "opt_in", id "opt_in", onClick ToggleNotifications ] []
+                        [ div [ class "inputContainer" ]
+                            [ input [ class "checkbox", type_ "checkbox", name "opt_in", id "opt_in", onClick ToggleNotifications ] []
+                            ]
                         , label [ attribute "for" "opt_in" ]
                             [ text "By ticking here you are opting-in to receive the latest news, offers, promotions and competitions from Kano. "
                             , a [ href "https://kano.me/privacy-policy/uk" ] [ text "Take a peak " ]
