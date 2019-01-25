@@ -146,6 +146,14 @@ section {
   -ms-flex: none;
   flex: none;
 }
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
 .kano-btn {
   position: relative;
   display: inline-block;
@@ -182,7 +190,7 @@ section {
   text-decoration: none;
 }
 .kano-newsletter-section {
-  padding: 10px;
+  padding: 20px;
   background: #394148;
   color: #fff;
 }
@@ -208,7 +216,6 @@ section {
   text-align: left;
 }
 .newsletterSubmission {
-  margin-top: -36px;
   margin-bottom: 14px;
 }
 /* .formInput {
@@ -319,8 +326,8 @@ label {
   }
 }
 @media (min-width: 981px) {
-  .newsletter-headline {
-    color: purple;
+  body {
+    padding: 20px;
   }
 }
 /*# sourceMappingURL=style.css.map */
