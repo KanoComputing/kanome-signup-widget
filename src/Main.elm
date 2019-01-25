@@ -196,7 +196,7 @@ viewTitle model =
         flags =
             model.flags
     in
-    div [ class "column is-mobile" ]
+    div [ class "column" ]
         [ div [ class "field" ]
             [ h2 [ class "newsletter-headline" ]
                 [ text flags.title ]
@@ -212,7 +212,7 @@ viewSignupContent model =
         flags =
             model.flags
     in
-    div [ class "column is-mobile" ]
+    div [ class "column" ]
         [ div [ class "field" ]
             [ div [ class "newsletterSubmission" ]
                 [ div [ class "formInput" ]

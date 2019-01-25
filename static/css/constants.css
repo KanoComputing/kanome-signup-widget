@@ -56,7 +56,7 @@
 @font-face {
   font-family: vagbold;
   src: url(https://cdn.kano.me/fonts/vag-rounded.eot);
-  src: url(https://cdn.kano.me/fonts/vag-rounded.eot#iefix) format("embedded-opentype"), url(https://cdn.kano.me/fonts/vag-rounded.ttf) format("truetype"), url(https://cdn.kano.me/fonts/vag-rounded.otf) format("opentype");
+  src: url(https://cdn.kano.me/fonts/vag-rounded.eot#iefix) format("embedded-opentype"), url(https://kano.me/assets/fonts/vag-rounded.ttf) format("truetype"), url(https://kano.me/assets/fonts/vag-rounded.otf) format("opentype");
   font-weight: 400;
   font-style: normal;
 }

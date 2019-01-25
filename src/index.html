@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Signup Widget</title>
     <script src="../dist/Main.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
     <link rel="stylesheet/less" type="text/css" href="styles.less" />
     <link rel="stylesheet" href="../static/css/style.css" />
@@ -17,13 +16,14 @@
   <body>
     <div id="signup-widget"></div>
     <script>
-      (function () {
+      (function() {
         var app = Elm.Main.init({
           node: document.getElementById("signup-widget"),
           flags: {
             campaign: "newsletter",
             title: "Sign up for Kano updates",
-            description: "You'll also receive the latest news, offers and projects straight to your inbox.",
+            description:
+              "You'll also receive the latest news, offers and projects straight to your inbox.",
             button: "SIGN ME UP",
             checkbox: true
           }
@@ -31,5 +31,4 @@
       })();
     </script>
   </body>
-
 </html>
