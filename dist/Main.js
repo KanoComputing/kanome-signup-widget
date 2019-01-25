@@ -6250,7 +6250,6 @@ var author$project$Main$viewSignupContent = function (model) {
 			]));
 };
 var elm$html$Html$h2 = _VirtualDom_node('h2');
-var elm$html$Html$h4 = _VirtualDom_node('h4');
 var author$project$Main$viewTitle = function (model) {
 	var flags = model.flags;
 	return A2(
@@ -6280,7 +6279,7 @@ var author$project$Main$viewTitle = function (model) {
 								elm$html$Html$text(flags.title)
 							])),
 						A2(
-						elm$html$Html$h4,
+						elm$html$Html$p,
 						_List_fromArray(
 							[
 								elm$html$Html$Attributes$class('newsletter-subheadline')

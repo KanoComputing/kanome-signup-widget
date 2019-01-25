@@ -200,7 +200,7 @@ viewTitle model =
         [ div [ class "field" ]
             [ h2 [ class "newsletter-headline" ]
                 [ text flags.title ]
-            , h4 [ class "newsletter-subheadline" ]
+            , p [ class "newsletter-subheadline" ]
                 [ text flags.description ]
             ]
         ]

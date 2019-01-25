@@ -114,22 +114,10 @@
   font-weight: 400;
   font-style: normal;
 }
+// typography.less
 
 @FONT_SIZE_BASE: 16px;
 @LINE_HEIGHT_BASE: 24px;
-
-// Media queries
-@TABLET_AND_ABOVE: 981px;
-@TABLET_AND_BELOW: 980px;
-
-@MOBILE_AND_ABOVE: 681px;
-@MOBILE_AND_BELOW: 680px;
-
-@EXTRA_SMALL_AND_ABOVE: 481px;
-@EXTRA_SMALL_AND_BELOW: 480px;
-
-@KANO_IMPACT_FONT: "vagbold", Helvetica, Arial, sans-serif;
-@KANO_DEFAULT_FONT: "bariol", Helvetica, Arial, sans-serif;
 
 .font-impact {
   font-family: @KANO_IMPACT_FONT;
@@ -199,6 +187,429 @@ p {
   line-height: 0.875rem;
 }
 
+// end typography
+
+// constants.less
+
+// Colors
+@KANO_BLACK: #292f35;
+
+@KANO_GREY_LLL: #e9ebec;
+@KANO_GREY_LL: #e3e4e6;
+@KANO_GREY_L: #d3d6d9;
+@KANO_GREY: #9fa4a8;
+
+@KANO_CHARCOAL: #44423d;
+@KANO_AMBER: #ffc100;
+@KANO_ABBEY: #394148;
+@KANO_PLATINUM: #dddddd;
+@KANO_ASH: #a7a7a7;
+@KANO_SCARLET: #f12d45;
+@KANO_PORCELAIN: #e9ebec;
+@KANO_STONE: #d3d6d9;
+@KANO_FLAMINGO: #f63636;
+@KANO_GRASSLAND: #88c440;
+@KANO_FLAME: #d95000;
+@KANO_BANANA: #f9c521;
+@KANO_CONCRETE: #e6e6e6;
+@KANO_ALUMINIUM: #666666;
+@KANO_MANGO: #fe8233;
+@KANO_DODGER_BLUE: #1093f5;
+@KANO_CANDLELIGHT: #ffda38;
+
+@KANO_WHITE: #ffffff;
+
+@KANO_RED: #f63636;
+@KANO_ORANGE: #ff6900;
+@KANO_ORANGE_D: #d9571e;
+
+@KANO_WAND: #d3ab43;
+@KANO_WAND_D: #ab8523;
+
+@ZINDEX_BEHIND: -1;
+@ZINDEX_DEFAULT: 1;
+@ZINDEX_FRONT: 10;
+@ZINDEX_TOP: 80;
+@ZINDEX_MENU: 90;
+@ZINDEX_MODAL: 100;
+
+// Media queries
+@TABLET_AND_ABOVE: 981px;
+@TABLET_AND_BELOW: 980px;
+
+@MOBILE_AND_ABOVE: 681px;
+@MOBILE_AND_BELOW: 680px;
+
+@EXTRA_SMALL_AND_ABOVE: 481px;
+@EXTRA_SMALL_AND_BELOW: 480px;
+
+@KANO_IMPACT_FONT: "vagbold", Helvetica, Arial, sans-serif;
+@KANO_DEFAULT_FONT: "bariol", Helvetica, Arial, sans-serif;
+
+@KANO_SPACING_DESKTOP: 120px;
+@KANO_SPACING_MOBILE: 64px;
+
+// Mixins
+.max-width {
+  max-width: 87.5rem;
+  margin: auto;
+  width: 100%;
+}
+
+.standard-component-spacing {
+  position: relative;
+  padding-top: @KANO_SPACING_MOBILE;
+  margin-top: @KANO_SPACING_MOBILE;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    height: 0;
+    width: 95%;
+    transform: translateX(-50%);
+
+    border-top: 1px solid @KANO_GREY_LLL;
+  }
+
+  @media screen and (min-width: @TABLET_AND_ABOVE) {
+    margin-top: @KANO_SPACING_DESKTOP;
+    padding-top: 0;
+
+    &::before {
+      content: none;
+    }
+
+    &.component-reduced-top-space {
+      margin-top: @KANO_SPACING_MOBILE;
+    }
+
+    &.component-bottom-space-desktop,
+    &.component-bottom-space-all {
+      margin-bottom: @KANO_SPACING_MOBILE;
+    }
+  }
+
+  &.component-border-no {
+    padding-top: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  &.component-bottom-space-all {
+    margin-bottom: @KANO_SPACING_MOBILE;
+  }
+}
+
+.vertically-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box-shadow {
+  box-shadow: 0 50px 34px -40px rgba(0, 0, 0, 0.32);
+}
+
+.keyframes(@name; @arguments) {
+  @-moz-keyframes @name {
+    @arguments();
+  }
+  @-webkit-keyframes @name {
+    @arguments();
+  }
+  @keyframes @name {
+    @arguments();
+  }
+}
+
+.animation(@arguments) {
+  -webkit-animation: @arguments;
+  -moz-animation: @arguments;
+  animation: @arguments;
+}
+
+.keyframes(
+  flex-fade-in; {0% {opacity: 0; display: flex;} 100% {opacity: 1; display:
+    flex;}}
+);
+
+.keyframes(flex-fade-out; {0% {opacity: 1;} 100% {opacity: 0; display: none;}});
+
+.keyframes(
+  block-fade-in; {0% {opacity: 0; display: block;} 100% {opacity: 1; display:
+    block;}}
+);
+
+.keyframes(
+  block-fade-out; {0% {opacity: 1;} 100% {opacity: 0; display: none;}}
+);
+
+.util-transition (@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -ms-transition: @transition;
+  -o-transition: @transition;
+}
+
+.util-transform(@arguments) {
+  -ms-transform: @arguments; /* IE 9 */
+  -webkit-transform: @arguments; /* Safari */
+  transform: @arguments;
+}
+
+.util-opacity(@n) {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=round(@n * 100))";
+  filter: "alpha(opacity=round(@n * 100))";
+  -moz-opacity: @n;
+  -khtml-opacity: @n;
+  opacity: @n;
+}
+
+.util-box-shadow(@arguments) {
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+// end constants.less
+
+// style.less
+
+html {
+  font-size: @FONT_SIZE_BASE;
+  line-height: @LINE_HEIGHT_BASE;
+
+  body {
+    background-color: @KANO_GREY_LLL;
+
+    font-family: @KANO_DEFAULT_FONT;
+
+    .not-published {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+
+      padding: 0.5rem 0;
+
+      .font-14();
+      color: @KANO_WHITE;
+      text-align: center;
+
+      background-color: @KANO_BLACK;
+
+      z-index: 99;
+    }
+
+    .avatar {
+      background: none;
+    }
+  }
+}
+
+.container {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-bottom: 1.25rem;
+
+  max-width: 73.75rem;
+}
+
+section {
+  flex: none;
+}
+
+.image-ratio-box {
+  position: relative;
+  height: 0;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.slick-dotted.slick-slider {
+  margin-bottom: 0;
+
+  .slick-dots {
+    margin-left: 0;
+    margin-bottom: 0;
+
+    li {
+      cursor: pointer;
+
+      button::before {
+        color: @KANO_GREY;
+        opacity: 0.3;
+        font-size: 12px;
+        border-radius: 100%;
+        cursor: pointer;
+        display: inline-block;
+        height: 10px;
+        margin: 0 0.3125rem;
+        width: 10px;
+      }
+    }
+
+    li.slick-active button:before {
+      opacity: 0.75;
+      color: @KANO_GREY;
+    }
+  }
+}
+
+// @import "animate.less";
+
+.kano-orange-link {
+  color: @KANO_ORANGE;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+
+  &:active,
+  &:focus,
+  &:visited {
+    color: @KANO_ORANGE;
+  }
+
+  &:hover {
+    color: @KANO_ORANGE_D;
+    text-decoration: underline;
+  }
+}
+
+.kano-btn {
+  position: relative;
+
+  display: inline-block;
+
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "bariol", Helvetica, Arial, sans-serif;
+
+  border-radius: 2rem;
+
+  background-color: @KANO_ORANGE;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  .small-btn();
+
+  &:hover {
+    background-color: @KANO_ORANGE_D;
+  }
+
+  &,
+  &:hover,
+  &:visited,
+  &:focus,
+  &:active,
+  &.active {
+    color: @KANO_WHITE;
+    text-decoration: none;
+  }
+
+  // Variations
+  &.link-btn {
+    .font-14();
+    color: @KANO_ORANGE;
+    background-color: transparent;
+
+    padding: 0;
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      right: -2rem;
+      top: 0;
+
+      height: 1.1rem;
+      width: 1.5rem;
+
+      background-repeat: no-repeat;
+    }
+
+    &.arrow-icon {
+      &::after {
+        background-image: url("../assets/icons/orange/KANO-ICONS-ARROW.svg");
+      }
+    }
+  }
+
+  &.kano-btn-wand {
+    background-color: @KANO_WAND;
+    color: @KANO_WHITE;
+
+    &:hover {
+      background-color: @KANO_WAND_D;
+    }
+  }
+
+  &.kano-btn-ghost-black {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: @KANO_WHITE;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  &.kano-btn-black {
+    background-color: @KANO_BLACK;
+    color: @KANO_WHITE;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  &.kano-btn-amazon {
+    color: @KANO_WHITE;
+    background: @KANO_BLACK url(../assets/images/icons/white/btn-amazon.svg)
+      no-repeat 124px center;
+    padding-right: 104px;
+    background-size: 80px auto;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  &.xsmall-btn {
+    .xsmall-btn();
+  }
+
+  &.small-btn {
+    .small-btn();
+  }
+
+  @media screen and (min-width: @TABLET_AND_ABOVE) {
+    .regular-btn();
+  }
+}
+
 .xsmall-btn {
   padding: 9px 18px;
   .font-12();
@@ -214,42 +625,85 @@ p {
   .font-16();
 }
 
-.font-impact,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: vagbold, Helvetica, Arial, sans-serif;
-  font-weight: 400;
+.kano-input {
+  color: @KANO_BLACK;
+  border: 2px solid @KANO_GREY_LLL;
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: inline-block;
+  .font-16();
+  vertical-align: middle;
+  height: 42px;
+  padding: 0 16px;
+
+  &:focus {
+    border: 2px solid @KANO_DODGER_BLUE;
+  }
+}
+.checkbox-control {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 5px;
+  padding-top: 1px;
+  cursor: pointer;
+
+  .checkbox-control--message {
+    .font-14();
+    display: inline-block;
+  }
+
+  .checkbox-control--indicator {
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 16px;
+    height: 16px;
+    background: @KANO_WHITE;
+    border: 1px solid @KANO_PORCELAIN;
+    border-radius: 3px;
+
+    &:after {
+      box-sizing: unset;
+      content: "";
+      position: absolute;
+      display: none;
+      left: 5px;
+      top: 0;
+      width: 3px;
+      height: 10px;
+      border: solid @KANO_GREY;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  input {
+    position: absolute;
+    z-index: -1;
+    .util-opacity(0);
+
+    &:disabled ~ .checkbox-control--indicator {
+      background: #e6e6e6;
+      .util-opacity(0.6);
+      pointer-events: none;
+    }
+
+    &:checked ~ .checkbox-control--indicator:after {
+      display: block;
+    }
+  }
+
+  &:hover input ~ .checkbox-control--indicator,
+  input:focus ~ .checkbox-control--indicator,
+  input:checked ~ .checkbox-control--control_indicator,
+  &:hover input:not([disabled]):checked ~ .checkbox-control--indicator,
+  input:checked:focus ~ .checkbox-control--indicator {
+    background: @KANO_WHITE;
+  }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-bottom: 1rem;
-  color: #292f35;
-}
-
-p {
-  font-family: bariol, Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  margin: 0;
-}
-
-@KANO_BLACK: #292f35;
-@KANO_ORANGE: #ff6900;
-@KANO_ORANGE_D: #d9571e;
-
-section {
-  -ms-flex: none;
-  flex: none;
-}
-
+// end style.less
 /*! Spectre.css v0.5.3 | MIT License | github.com/picturepan2/spectre */
 html {
   font-family: sans-serif;
