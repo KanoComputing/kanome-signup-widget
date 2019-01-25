@@ -294,7 +294,6 @@ label {
   border: 1px solid #e3e4e6;
   border-radius: 3px;
 }
-/* @EXTRA_SMALL_AND_ABOVE  @MOBILE_AND_BELOW */
 .message {
   padding-left: 20px;
 }
@@ -302,16 +301,9 @@ label {
   padding-top: 2.5px;
   padding-right: 4px;
 }
-@media (min-width: 481px) and (max-with: 680px) {
+@media (min-width: 681px) and (max-width: 980px) {
   .newsletter-headline {
-    color: green;
-  }
-}
-/* 964px */
-/* @MOBILE_AND_ABOVE 681 @TABLET_AND_ABOVE 980*/
-@media (min-width: 681px) and (max-width: 981px) {
-  .newsletter-headline {
-    color: red;
+    border: 1px solid red;
     padding: 0 0 7px;
   }
   .consent-checkbox {
@@ -326,7 +318,6 @@ label {
     margin: 17px 0;
   }
 }
-/* @TABLET_AND_ABOVE 981 */
 @media (min-width: 981px) {
   .newsletter-headline {
     color: purple;
