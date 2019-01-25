@@ -1,4 +1,3 @@
-// FONT
 @font-face {
   font-family: bariol;
   src: url(https://cdn.kano.me/fonts/bariol_bold_italic-webfont.eot);
@@ -110,194 +109,128 @@
   src: url(https://cdn.kano.me/fonts/vag-rounded.eot);
   src: url(https://cdn.kano.me/fonts/vag-rounded.eot#iefix)
       format("embedded-opentype"),
-    url(https://cdn.kano.me/fonts/vag-rounded.ttf) format("truetype"),
-    url(https://cdn.kano.me/fonts/vag-rounded.otf) format("opentype");
+    url(https://kano.me/assets/fonts/vag-rounded.ttf) format("truetype"),
+    url(https://kano.me/assets/fonts/vag-rounded.otf) format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 
-body {
-  background: #394148;
-  color: #ffffff;
-  font-family: bariol;
+@FONT_SIZE_BASE: 16px;
+@LINE_HEIGHT_BASE: 24px;
+
+// Media queries
+@TABLET_AND_ABOVE: 981px;
+@TABLET_AND_BELOW: 980px;
+
+@MOBILE_AND_ABOVE: 681px;
+@MOBILE_AND_BELOW: 680px;
+
+@EXTRA_SMALL_AND_ABOVE: 481px;
+@EXTRA_SMALL_AND_BELOW: 480px;
+
+@KANO_IMPACT_FONT: "vagbold", Helvetica, Arial, sans-serif;
+@KANO_DEFAULT_FONT: "bariol", Helvetica, Arial, sans-serif;
+
+.font-impact {
+  font-family: @KANO_IMPACT_FONT;
+  font-weight: normal;
 }
 
-.container {
-  text-align: center;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  .font-impact();
+  margin-bottom: 1rem;
+  color: @KANO_BLACK;
 }
 
-.newsletter-headline {
-  font-size: 32px;
+p {
+  font-family: @KANO_DEFAULT_FONT;
   font-weight: 400;
-  line-height: 40px;
-  margin: 0px;
-  max-width: 450px;
-  text-align: left;
-  padding-top: 20px;
+
+  margin: 0;
 }
 
-.newsletter-subheadline {
-  font-size: 18px;
-  font-weight: 200;
-  max-width: 450px;
-  color: #a7a7a7;
-  margin-top: auto;
-  text-align: left;
+.font-56 {
+  font-size: 3.5rem;
+  line-height: 4rem;
 }
 
-.column {
-  text-align: -webkit-center;
+.font-48 {
+  font-size: 3rem;
+  line-height: 3.5rem;
 }
 
-.input {
-  font-family: bariol;
-  color: #414a51;
-  border-radius: 8px;
-  display: inline-block;
-  font-size: 16px;
+.font-40 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+
+.font-32 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+.font-24 {
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+}
+
+.font-20 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.font-16 {
+  font-size: 1rem;
   line-height: 1.5rem;
-  width: 80%;
-  outline: none;
-  border: 2px solid transparent;
-  margin: 0 auto 14px;
-  max-width: 300px;
-  margin-right: 20px;
-  height: 42px;
-  padding: 0 16px;
-  border: 2px solid #e9ebec;
 }
 
-.message {
-  background: #394148;
-  margin-top: 0;
-  font-size: 16px;
-  line-height: 24px;
-  text-transform: none;
-  text-align: left;
-  max-width: 400px;
-  margin: 0px;
+.font-14 {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
 }
 
-.button {
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-family: "bariol";
-  border-radius: 2rem;
-  transition: background-color 0.3s;
-  border: none;
-  cursor: pointer;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  background-color: #ff6900;
-  color: #ffffff;
-  margin-top: 2px;
-  vertical-align: middle;
+.font-12 {
+  font-size: 0.75rem;
+  line-height: 0.875rem;
 }
 
-.consent-checkbox {
-  display: inline-flex;
-  position: relative;
-  margin-bottom: 10px;
-  padding-top: 5px;
-  max-width: 450px;
-  padding-left: 12px;
-  padding: 0px;
-  margin: 0px;
-  font-size: 14px;
-  line-height: 16px;
-  display: inline-block;
-  color: #9fa4a8;
-  padding-left: 10px;
-  a {
-    text-decoration: underline;
-    color: #9fa4a8;
-  }
+.font-impact,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: vagbold, Helvetica, Arial, sans-serif;
+  font-weight: 400;
 }
 
-.checkbox {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #e9ebec;
-  border-radius: 3px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
+  color: #292f35;
 }
 
-@media (min-width: 900px) {
-  .consent-checkbox {
-    text-align: left;
-  }
+p {
+  font-family: bariol, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  margin: 0;
 }
 
-@media (min-width: 900px) {
-  .container {
-    padding: 10px;
-  }
-}
+@KANO_BLACK: #292f35;
+@KANO_ORANGE: #ff6900;
+@KANO_ORANGE_D: #d9571e;
 
-@media (min-width: 769px) and (max-width: 900px) {
-  .formInput {
-    text-align: right;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 900px) {
-  .message {
-    text-align: right;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 900px) {
-  .input {
-    margin: 0px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 900px) {
-  .container {
-    padding: 40px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 900px) {
-  .button {
-    margin: 10px 0px 5px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 900px) {
-  .newsletter-headline {
-    padding-bottom: 30px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 900px) {
-  .consent-checkbox {
-    text-align: right;
-  }
-}
-
-@media all and (max-width: 769px) {
-  .newsletter-headline {
-    padding-left: 20px;
-  }
-}
-
-@media all and (max-width: 769px) {
-  .newsletter-subheadline {
-    padding-left: 20px;
-  }
-}
-
-@media all and (max-width: 769px) {
-  .message {
-    padding-left: 20px;
-  }
-}
-
-@media all and (max-width: 769px) {
-  .checkbox-control {
-    text-align: left;
-  }
+section {
+  -ms-flex: none;
+  flex: none;
 }

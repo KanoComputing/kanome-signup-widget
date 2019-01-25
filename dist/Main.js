@@ -6180,7 +6180,7 @@ var author$project$Main$viewSignupContent = function (model) {
 										elm$html$Html$button,
 										_List_fromArray(
 											[
-												elm$html$Html$Attributes$class('button'),
+												elm$html$Html$Attributes$class('kano-btn'),
 												elm$html$Html$Events$onClick(author$project$Main$Submit)
 											]),
 										_List_fromArray(
@@ -6201,16 +6201,25 @@ var author$project$Main$viewSignupContent = function (model) {
 								_List_fromArray(
 									[
 										A2(
-										elm$html$Html$input,
+										elm$html$Html$div,
 										_List_fromArray(
 											[
-												elm$html$Html$Attributes$class('checkbox'),
-												elm$html$Html$Attributes$type_('checkbox'),
-												elm$html$Html$Attributes$name('opt_in'),
-												elm$html$Html$Attributes$id('opt_in'),
-												elm$html$Html$Events$onClick(author$project$Main$ToggleNotifications)
+												elm$html$Html$Attributes$class('inputContainer')
 											]),
-										_List_Nil),
+										_List_fromArray(
+											[
+												A2(
+												elm$html$Html$input,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('checkbox'),
+														elm$html$Html$Attributes$type_('checkbox'),
+														elm$html$Html$Attributes$name('opt_in'),
+														elm$html$Html$Attributes$id('opt_in'),
+														elm$html$Html$Events$onClick(author$project$Main$ToggleNotifications)
+													]),
+												_List_Nil)
+											])),
 										A2(
 										elm$html$Html$label,
 										_List_fromArray(
@@ -6240,7 +6249,7 @@ var author$project$Main$viewSignupContent = function (model) {
 					]))
 			]));
 };
-var elm$html$Html$h1 = _VirtualDom_node('h1');
+var elm$html$Html$h2 = _VirtualDom_node('h2');
 var elm$html$Html$h4 = _VirtualDom_node('h4');
 var author$project$Main$viewTitle = function (model) {
 	var flags = model.flags;
@@ -6261,7 +6270,7 @@ var author$project$Main$viewTitle = function (model) {
 				_List_fromArray(
 					[
 						A2(
-						elm$html$Html$h1,
+						elm$html$Html$h2,
 						_List_fromArray(
 							[
 								elm$html$Html$Attributes$class('newsletter-headline')
