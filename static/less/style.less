@@ -1,5 +1,14 @@
 @import "constants.less";
 
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+
 .kano-btn {
   position: relative;
 
@@ -45,7 +54,7 @@
 
 .kano-newsletter-section {
   // min-height: 300px;
-  padding: 10px;
+  padding: 20px;
   background: #394148;
   color: #fff;
 }
@@ -75,7 +84,7 @@
 }
 
 .newsletterSubmission {
-  margin-top: -36px;
+  // margin-top: -36px;
   margin-bottom: 14px;
 }
 
@@ -173,10 +182,6 @@ label {
   border-radius: 3px;
 }
 
-.message {
-  padding-left: 20px;
-}
-
 .inputContainer {
   padding-top: 2.5px;
   padding-right: 4px;
@@ -186,6 +191,8 @@ label {
 
 // below mobile
 // @MOBILE_AND_BELOW: 680px;
+
+// NO MEDIA QUERY STYLING REQUIRED
 
 // inbetween mobile and tablet:
 // @MOBILE_AND_ABOVE: 681px;
@@ -216,8 +223,8 @@ label {
 // @TABLET_AND_ABOVE: 981px;
 
 @media (min-width: @TABLET_AND_ABOVE) {
-  .newsletter-headline {
-    color: purple;
+  body {
+    padding: 20px;
   }
 }
 
