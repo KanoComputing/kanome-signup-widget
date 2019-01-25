@@ -205,7 +205,7 @@ html {
   text-decoration: none;
 }
 .kano-newsletter-section {
-  padding: 10px;
+  padding: 20px;
   background: #394148;
   color: #fff;
 }
@@ -315,9 +315,6 @@ label {
   border: 1px solid #e3e4e6;
   border-radius: 3px;
 }
-.message {
-  padding-left: 20px;
-}
 .inputContainer {
   padding-top: 2.5px;
   padding-right: 4px;
@@ -359,8 +356,8 @@ label {
   }
 }
 @media (min-width: 981px) {
-  .newsletter-headline {
-    color: purple;
+  body {
+    padding: 20px;
   }
 }
 /*# sourceMappingURL=style.css.map */
