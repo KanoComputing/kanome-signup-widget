@@ -118,6 +118,21 @@ p {
   font-size: 0.75rem;
   line-height: 0.875rem;
 }
+.xsmall-btn {
+  padding: 9px 18px;
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+}
+.small-btn {
+  padding: 0.75rem 1.75rem;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
+.regular-btn {
+  padding: 1rem 2.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
 .font-impact,
 h1,
 h2,

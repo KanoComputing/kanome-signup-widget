@@ -5,6 +5,7 @@
 *::before {
   box-sizing: inherit;
 }
+
 html {
   box-sizing: border-box;
 }
@@ -53,7 +54,6 @@ html {
 }
 
 .kano-newsletter-section {
-  // min-height: 300px;
   padding: 20px;
   background: #394148;
   color: #fff;
@@ -72,7 +72,7 @@ html {
   padding: 27px 0 9px;
   color: #e3e4e6;
 
-  .font-40();
+  .font-20();
 }
 
 .newsletter-subheadline {
@@ -81,16 +81,13 @@ html {
   color: #e3e4e6;
   margin-top: auto;
   text-align: left;
+
+  .font-12();
 }
 
 .newsletterSubmission {
-  // margin-top: -36px;
   margin-bottom: 14px;
 }
-
-/* .formInput {
-    margin-top: 18px;
-  } */
 
 .input {
   border-radius: 8px;
@@ -199,9 +196,24 @@ label {
 // @TABLET_AND_BELOW: 980px;
 
 @media (min-width: @MOBILE_AND_ABOVE) and (max-width: @TABLET_AND_BELOW) {
+  .container {
+    padding: 28px;
+    max-width: 980px;
+  }
+
+  .columns {
+    display: flex;
+    justify-content: center;
+  }
+
+  .column {
+    max-width: 340px;
+    padding: 24px;
+  }
+
   .newsletter-headline {
-    border: 1px solid red;
     padding: 0 0 7px;
+    .font-14();
   }
 
   .consent-checkbox {
@@ -212,6 +224,12 @@ label {
   .newsletter-subheadline,
   .input {
     margin: 0;
+    .font-12();
+  }
+
+  .formInput {
+    display: flex;
+    flex-direction: column;
   }
 
   button.kano-btn {
@@ -223,8 +241,7 @@ label {
 // @TABLET_AND_ABOVE: 981px;
 
 @media (min-width: @TABLET_AND_ABOVE) {
-  body {
-    padding: 20px;
+
   }
 }
 

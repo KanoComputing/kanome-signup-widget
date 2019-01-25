@@ -118,6 +118,21 @@ p {
   font-size: 0.75rem;
   line-height: 0.875rem;
 }
+.xsmall-btn {
+  padding: 9px 18px;
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+}
+.small-btn {
+  padding: 0.75rem 1.75rem;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
+.regular-btn {
+  padding: 1rem 2.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
 .font-impact,
 h1,
 h2,
@@ -205,8 +220,8 @@ html {
   text-align: left;
   padding: 27px 0 9px;
   color: #e3e4e6;
-  font-size: 2.5rem;
-  line-height: 3rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 .newsletter-subheadline {
   font-weight: 200;
@@ -214,13 +229,12 @@ html {
   color: #e3e4e6;
   margin-top: auto;
   text-align: left;
+  font-size: 0.75rem;
+  line-height: 0.875rem;
 }
 .newsletterSubmission {
   margin-bottom: 14px;
 }
-/* .formInput {
-    margin-top: 18px;
-  } */
 .input {
   border-radius: 8px;
   display: inline-block;
@@ -306,9 +320,22 @@ label {
   padding-right: 4px;
 }
 @media (min-width: 681px) and (max-width: 980px) {
+  .container {
+    padding: 28px;
+    max-width: 980px;
+  }
+  .columns {
+    display: flex;
+    justify-content: center;
+  }
+  .column {
+    max-width: 340px;
+    padding: 24px;
+  }
   .newsletter-headline {
-    border: 1px solid red;
     padding: 0 0 7px;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
   }
   .consent-checkbox {
     margin-top: 5px;
@@ -317,6 +344,12 @@ label {
   .newsletter-subheadline,
   .input {
     margin: 0;
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+  }
+  .formInput {
+    display: flex;
+    flex-direction: column;
   }
   button.kano-btn {
     margin: 17px 0;
