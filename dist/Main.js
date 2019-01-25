@@ -6125,7 +6125,7 @@ var author$project$Main$viewSignupContent = function (model) {
 		elm$html$Html$div,
 		_List_fromArray(
 			[
-				elm$html$Html$Attributes$class('column is-mobile')
+				elm$html$Html$Attributes$class('column')
 			]),
 		_List_fromArray(
 			[
@@ -6257,7 +6257,7 @@ var author$project$Main$viewTitle = function (model) {
 		elm$html$Html$div,
 		_List_fromArray(
 			[
-				elm$html$Html$Attributes$class('column is-mobile')
+				elm$html$Html$Attributes$class('column')
 			]),
 		_List_fromArray(
 			[
