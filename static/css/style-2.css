@@ -3650,438 +3650,62 @@ a.text-error:visited {
   word-wrap: break-word;
 }
 /*# sourceMappingURL=spectre.css.map */
-.kano-newsletter-content {
-  background-color: #394148;
+.kano-newsletter-section {
+  background: #394148;
   color: #ffffff;
-  padding-top: 2.5rem;
-  /* MEDIA QUERIES*/
+  font-family: bariol;
+  /* MEDIA QUERY CHANGES */
 }
-.kano-newsletter-content .newsletter-subheadline {
+.kano-newsletter-section .newsletter-headline {
+  font-family: "vagbold", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.kano-newsletter-section .newsletter-subheadline {
   color: #9fa4a8;
   max-width: 448px;
-}
-.kano-newsletter-content .message {
-  display: none;
-}
-.kano-newsletter-content .subscription {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: #fff;
-  background-image: none;
-  border: 0.05rem solid #caced7;
-  border-radius: 0.1rem;
-  color: #50596c;
-  display: block;
-  font-size: 0.8rem;
-  height: 1.8rem;
-  line-height: 1.2rem;
-  max-width: 100%;
-  outline: none;
-  padding: 0.25rem 0.4rem;
-  position: relative;
-  transition: all 0.2s ease;
-  width: 100%;
-  color: #292f35;
-  border: 2px solid #e9ebec;
-  border-radius: 6px;
-  box-sizing: border-box;
-  display: inline-block;
   font-size: 1rem;
   line-height: 1.5rem;
-  vertical-align: middle;
-  height: 42px;
-  padding: 0 16px;
 }
-.kano-newsletter-content .subscription:focus {
-  border: 2px solid #1093f5;
+.kano-newsletter-section .message {
+  background: #394148;
+  margin-top: 0;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: none;
+  text-align: left;
+  max-width: 400px;
+  margin: 0px;
 }
-.kano-newsletter-content .subscription--email {
-  margin: 5px auto 14px;
-}
-.kano-newsletter-content .signmeup-btn {
-  margin: 0 auto 14px;
-}
-.kano-newsletter-content .consent-checkbox {
+.kano-newsletter-section .consent-checkbox {
   display: flex;
+  min-height: 60px;
+  line-height: 16px;
+  color: #e3e4e6;
 }
-.kano-newsletter-content .consent-checkbox .inputContainer {
+.kano-newsletter-section .consent-checkbox .inputContainer {
   padding-top: 0.5px;
   padding-right: 6px;
 }
-.kano-newsletter-content .consent-checkbox .link {
-  color: #fff;
+.kano-newsletter-section .consent-checkbox .inputContainer .checkbox {
+  min-width: 12px;
+  min-height: 12px;
+  border: 1px solid #e3e4e6;
+  border-radius: 3px;
+}
+.kano-newsletter-section .consent-checkbox a {
   font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
 }
 @media all and (max-width: 680px) {
-  .kano-newsletter-content .columns {
-    flex-direction: column;
-  }
-  .kano-newsletter-content .column {
-    width: 100%;
-  }
-  .kano-newsletter-content .field {
-    padding: 0 100px;
-  }
-  .kano-newsletter-content .newsletter-headline {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-  .kano-newsletter-content .newsletter-subheadline {
-    font-size: 0.75rem;
-    line-height: 0.875rem;
-  }
-  .kano-newsletter-content .input-label {
-    font-size: 0.75rem;
-    line-height: 0.875rem;
-  }
-  .kano-newsletter-content .signmeup-btn {
-    position: relative;
-    display: inline-block;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: "bariol", Helvetica, Arial, sans-serif;
-    border-radius: 2rem;
-    background-color: #ff6900;
-    transition: background-color 0.3s;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    padding: 0.75rem 1.75rem;
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-    padding: 9px 18px;
-    font-size: 0.75rem;
-    line-height: 0.875rem;
-  }
-  .kano-newsletter-content .signmeup-btn:hover {
-    background-color: #d9571e;
-  }
-  .kano-newsletter-content .signmeup-btn,
-  .kano-newsletter-content .signmeup-btn:hover,
-  .kano-newsletter-content .signmeup-btn:visited,
-  .kano-newsletter-content .signmeup-btn:focus,
-  .kano-newsletter-content .signmeup-btn:active,
-  .kano-newsletter-content .signmeup-btn.active {
-    color: #ffffff;
-    text-decoration: none;
-  }
-  .kano-newsletter-content .signmeup-btn.link-btn {
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-    color: #ff6900;
-    background-color: transparent;
-    padding: 0;
-  }
-  .kano-newsletter-content .signmeup-btn.link-btn::after {
-    content: "";
-    position: absolute;
-    right: -2rem;
-    top: 0;
-    height: 1.1rem;
-    width: 1.5rem;
-    background-repeat: no-repeat;
-  }
-  .kano-newsletter-content .signmeup-btn.link-btn.arrow-icon::after {
-    background-image: url("../assets/icons/orange/KANO-ICONS-ARROW.svg");
-  }
-  .kano-newsletter-content .signmeup-btn.kano-btn-wand {
-    background-color: #d3ab43;
-    color: #ffffff;
-  }
-  .kano-newsletter-content .signmeup-btn.kano-btn-wand:hover {
-    background-color: #ab8523;
-  }
-  .kano-newsletter-content .signmeup-btn.kano-btn-ghost-black {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #ffffff;
-  }
-  .kano-newsletter-content .signmeup-btn.kano-btn-ghost-black:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  .kano-newsletter-content .signmeup-btn.kano-btn-black {
-    background-color: #292f35;
-    color: #ffffff;
-  }
-  .kano-newsletter-content .signmeup-btn.kano-btn-black:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  .kano-newsletter-content .signmeup-btn.kano-btn-amazon {
-    color: #ffffff;
-    background: #292f35 url(../assets/images/icons/white/btn-amazon.svg) no-repeat 124px center;
-    padding-right: 104px;
-    background-size: 80px auto;
-  }
-  .kano-newsletter-content .signmeup-btn.kano-btn-amazon:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  .kano-newsletter-content .signmeup-btn[disabled] {
-    opacity: 0.6;
-    pointer-events: none;
-  }
-  .kano-newsletter-content .signmeup-btn.xsmall-btn {
-    padding: 9px 18px;
-    font-size: 0.75rem;
-    line-height: 0.875rem;
-  }
-  .kano-newsletter-content .signmeup-btn.small-btn {
-    padding: 0.75rem 1.75rem;
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-  }
 }
-@media all and (max-width: 680px) and screen and (min-width: 981px) {
-  .kano-newsletter-content .signmeup-btn {
-    padding: 1rem 2.25rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
+@media all and (max-width: 980px) {
 }
 @media (min-width: 681px) and (max-width: 980px) {
-  .kano-newsletter-content .field {
-    margin: 0 55px;
-  }
-  .kano-newsletter-content .newsletter-headline {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-  .kano-newsletter-content .newsletter-subheadline {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-  .kano-newsletter-content .input-label {
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-  }
-  .kano-newsletter-content .formInput {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  .kano-newsletter-content button.signmeup-btn {
-    position: relative;
-    display: inline-block;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: "bariol", Helvetica, Arial, sans-serif;
-    border-radius: 2rem;
-    background-color: #ff6900;
-    transition: background-color 0.3s;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    padding: 0.75rem 1.75rem;
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-    margin: 0 0 14px;
-  }
-  .kano-newsletter-content button.signmeup-btn:hover {
-    background-color: #d9571e;
-  }
-  .kano-newsletter-content button.signmeup-btn,
-  .kano-newsletter-content button.signmeup-btn:hover,
-  .kano-newsletter-content button.signmeup-btn:visited,
-  .kano-newsletter-content button.signmeup-btn:focus,
-  .kano-newsletter-content button.signmeup-btn:active,
-  .kano-newsletter-content button.signmeup-btn.active {
-    color: #ffffff;
-    text-decoration: none;
-  }
-  .kano-newsletter-content button.signmeup-btn.link-btn {
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-    color: #ff6900;
-    background-color: transparent;
-    padding: 0;
-  }
-  .kano-newsletter-content button.signmeup-btn.link-btn::after {
-    content: "";
-    position: absolute;
-    right: -2rem;
-    top: 0;
-    height: 1.1rem;
-    width: 1.5rem;
-    background-repeat: no-repeat;
-  }
-  .kano-newsletter-content button.signmeup-btn.link-btn.arrow-icon::after {
-    background-image: url("../assets/icons/orange/KANO-ICONS-ARROW.svg");
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-wand {
-    background-color: #d3ab43;
-    color: #ffffff;
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-wand:hover {
-    background-color: #ab8523;
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-ghost-black {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #ffffff;
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-ghost-black:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-black {
-    background-color: #292f35;
-    color: #ffffff;
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-black:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-amazon {
-    color: #ffffff;
-    background: #292f35 url(../assets/images/icons/white/btn-amazon.svg) no-repeat 124px center;
-    padding-right: 104px;
-    background-size: 80px auto;
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-amazon:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  .kano-newsletter-content button.signmeup-btn[disabled] {
-    opacity: 0.6;
-    pointer-events: none;
-  }
-  .kano-newsletter-content button.signmeup-btn.xsmall-btn {
-    padding: 9px 18px;
-    font-size: 0.75rem;
-    line-height: 0.875rem;
-  }
-  .kano-newsletter-content button.signmeup-btn.small-btn {
-    padding: 0.75rem 1.75rem;
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-  }
-}
-@media (min-width: 681px) and (max-width: 980px) and screen and (min-width: 981px) {
-  .kano-newsletter-content button.signmeup-btn {
-    padding: 1rem 2.25rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
 }
 @media (min-width: 981px) {
-  .kano-newsletter-content .newsletter-headlineP {
-    font-size: 1.5rem;
-    line-height: 2.2rem;
-  }
-  .kano-newsletter-content .newsletter-subheadline {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-  .kano-newsletter-content .formInput {
-    display: flex;
-  }
-  .kano-newsletter-content .input-label {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-  .kano-newsletter-content button.signmeup-btn {
-    position: relative;
-    display: inline-block;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: "bariol", Helvetica, Arial, sans-serif;
-    border-radius: 2rem;
-    background-color: #ff6900;
-    transition: background-color 0.3s;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    padding: 0.75rem 1.75rem;
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-    height: 45px;
-    margin: 5px 20px 14px;
-    min-width: 158px;
-  }
-  .kano-newsletter-content button.signmeup-btn:hover {
-    background-color: #d9571e;
-  }
-  .kano-newsletter-content button.signmeup-btn,
-  .kano-newsletter-content button.signmeup-btn:hover,
-  .kano-newsletter-content button.signmeup-btn:visited,
-  .kano-newsletter-content button.signmeup-btn:focus,
-  .kano-newsletter-content button.signmeup-btn:active,
-  .kano-newsletter-content button.signmeup-btn.active {
-    color: #ffffff;
-    text-decoration: none;
-  }
-  .kano-newsletter-content button.signmeup-btn.link-btn {
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-    color: #ff6900;
-    background-color: transparent;
-    padding: 0;
-  }
-  .kano-newsletter-content button.signmeup-btn.link-btn::after {
-    content: "";
-    position: absolute;
-    right: -2rem;
-    top: 0;
-    height: 1.1rem;
-    width: 1.5rem;
-    background-repeat: no-repeat;
-  }
-  .kano-newsletter-content button.signmeup-btn.link-btn.arrow-icon::after {
-    background-image: url("../assets/icons/orange/KANO-ICONS-ARROW.svg");
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-wand {
-    background-color: #d3ab43;
-    color: #ffffff;
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-wand:hover {
-    background-color: #ab8523;
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-ghost-black {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #ffffff;
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-ghost-black:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-black {
-    background-color: #292f35;
-    color: #ffffff;
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-black:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-amazon {
-    color: #ffffff;
-    background: #292f35 url(../assets/images/icons/white/btn-amazon.svg) no-repeat 124px center;
-    padding-right: 104px;
-    background-size: 80px auto;
-  }
-  .kano-newsletter-content button.signmeup-btn.kano-btn-amazon:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  .kano-newsletter-content button.signmeup-btn[disabled] {
-    opacity: 0.6;
-    pointer-events: none;
-  }
-  .kano-newsletter-content button.signmeup-btn.xsmall-btn {
-    padding: 9px 18px;
-    font-size: 0.75rem;
-    line-height: 0.875rem;
-  }
-  .kano-newsletter-content button.signmeup-btn.small-btn {
-    padding: 0.75rem 1.75rem;
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-  }
 }
-@media (min-width: 981px) and screen and (min-width: 981px) {
-  .kano-newsletter-content button.signmeup-btn {
-    padding: 1rem 2.25rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-}
+/*# sourceMappingURL=style.css.map */

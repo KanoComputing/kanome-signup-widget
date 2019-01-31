@@ -1,0 +1,162 @@
+@import "constants.less";
+
+.kano-newsletter-section {
+  background: @KANO_ABBEY;
+  color: @KANO_WHITE;
+  font-family: bariol;
+
+  // .field {
+  //   padding-top: 2.25rem auto;
+  // }
+
+  .newsletter-headline {
+    font-family: @KANO_IMPACT_FONT;
+    color: @KANO_WHITE;
+    font-weight: 700;
+    // max-width: 450px;
+    .font-20();
+  }
+
+  .newsletter-subheadline {
+    color: @KANO_GREY;
+    max-width: 448px;
+    .font-16();
+  }
+
+  // .newsletterSubmission {
+  //   margin-bottom: 14px;
+  // }
+
+  .message {
+    background: #394148;
+    margin-top: 0;
+    font-size: @FONT_SIZE_BASE;
+    line-height: @LINE_HEIGHT_BASE;
+    text-transform: none;
+    text-align: left;
+    max-width: 400px;
+    margin: 0px;
+  }
+
+  .consent-checkbox {
+    // padding: 0;
+    // margin: 0;
+    display: flex;
+    min-height: 60px;
+    line-height: 16px;
+    color: #e3e4e6;
+
+    .inputContainer {
+      padding-top: 0.5px;
+      padding-right: 6px;
+
+      .checkbox {
+        min-width: 12px;
+        min-height: 12px;
+        border: 1px solid #e3e4e6;
+        border-radius: 3px;
+      }
+    }
+
+    // to review
+    a {
+      font-weight: bold;
+      color: @KANO_WHITE;
+      text-decoration: none;
+    }
+  }
+
+  .formInput {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: flex-start;
+  }
+
+  @media all and (max-width: @MOBILE_AND_BELOW) {
+    // .columns {
+    //   display: flex;
+    //   flex-direction: column;
+    // }
+  }
+
+  /* MEDIA QUERY CHANGES */
+
+  // below mobile
+  // @MOBILE_AND_BELOW: 680px;
+
+  // from min width mobile to all
+
+  @media all and (max-width: @TABLET_AND_BELOW) {
+    // .container {
+    //   padding: 28px;
+    // }
+
+    // .columns {
+    //   display: flex;
+    //   justify-content: space-between;
+    // }
+
+    // .column {
+    //   padding: 24px;
+    // }
+  }
+
+  // in between mobile and tablet:
+  // @MOBILE_AND_ABOVE: 681px;
+  // @TABLET_AND_BELOW: 980px;
+
+  @media (min-width: @MOBILE_AND_ABOVE) and (max-width: @TABLET_AND_BELOW) {
+    // .container {
+    //   max-width: 980px;
+    // }
+
+    // .newsletter-headline {
+    //   // padding: 0 0 7px;
+    //   .font-20();
+    // }
+
+    // .consent-checkbox {
+    //   margin-top: 5px;
+    // }
+
+    // .newsletter-subheadline {
+    //   width: 358px;
+    // }
+
+    // .newsletterSubmission,
+    // .newsletter-subheadline,
+    // .input {
+    //   margin-top: 0px;
+    //   .font-16();
+    // }
+
+    // .formInput {
+    //   display: flex;
+    //   flex-wrap: wrap-reverse;
+    // }
+  }
+
+  // above tablet
+  // @TABLET_AND_ABOVE: 981px;
+
+  @media (min-width: @TABLET_AND_ABOVE) {
+    // .newsletter-headline {
+    //   .font-20();
+    // }
+
+    // .newsletter-subheadline {
+    //   max-width: 416px;
+    // }
+
+    // .input {
+    //   margin-bottom: 0px;
+    // }
+    // .formInput {
+    //   flex-direction: row;
+    // }
+  }
+
+  // kano-newsletter-section end
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -6169,7 +6169,7 @@ var author$project$Main$viewSignupContent = function (model) {
 										elm$html$Html$input,
 										_List_fromArray(
 											[
-												elm$html$Html$Attributes$class('input email'),
+												elm$html$Html$Attributes$class('subscription subscription--email'),
 												elm$html$Html$Attributes$name('email'),
 												elm$html$Html$Attributes$placeholder('Enter your email'),
 												elm$html$Html$Attributes$value(model.email),
@@ -6180,7 +6180,7 @@ var author$project$Main$viewSignupContent = function (model) {
 										elm$html$Html$button,
 										_List_fromArray(
 											[
-												elm$html$Html$Attributes$class('kano-btn'),
+												elm$html$Html$Attributes$class('signmeup-btn'),
 												elm$html$Html$Events$onClick(author$project$Main$Submit)
 											]),
 										_List_fromArray(
@@ -6224,6 +6224,7 @@ var author$project$Main$viewSignupContent = function (model) {
 										elm$html$Html$label,
 										_List_fromArray(
 											[
+												elm$html$Html$Attributes$class('input-label'),
 												A2(elm$html$Html$Attributes$attribute, 'for', 'opt_in')
 											]),
 										_List_fromArray(
@@ -6233,6 +6234,7 @@ var author$project$Main$viewSignupContent = function (model) {
 												elm$html$Html$a,
 												_List_fromArray(
 													[
+														elm$html$Html$Attributes$class('link'),
 														elm$html$Html$Attributes$href('https://kano.me/privacy-policy/uk')
 													]),
 												_List_fromArray(
@@ -6297,7 +6299,7 @@ var author$project$Main$view = function (model) {
 		elm$html$Html$section,
 		_List_fromArray(
 			[
-				elm$html$Html$Attributes$class('kano-newsletter-section')
+				elm$html$Html$Attributes$class('kano-newsletter-content')
 			]),
 		_List_fromArray(
 			[
@@ -6305,7 +6307,7 @@ var author$project$Main$view = function (model) {
 				elm$html$Html$div,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$class('container is-fluid')
+						elm$html$Html$Attributes$class('container')
 					]),
 				_List_fromArray(
 					[
@@ -6313,7 +6315,7 @@ var author$project$Main$view = function (model) {
 						elm$html$Html$div,
 						_List_fromArray(
 							[
-								elm$html$Html$Attributes$class('columns is-vcentered')
+								elm$html$Html$Attributes$class('columns')
 							]),
 						_List_fromArray(
 							[

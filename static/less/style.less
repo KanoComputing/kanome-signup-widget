@@ -1,184 +1,152 @@
 @import "constants.less";
 
-.kano-newsletter-section {
-  padding: 20px;
-  background: #394148;
-  color: #fff;
-  font-family: bariol;
+.ApplicationFooter-contents {
+}
 
-  .newsletter-headline {
-    font-family: @KANO_IMPACT_FONT;
-    font-weight: 700;
-    margin: 0px;
-    max-width: 450px;
-    text-align: left;
-    padding: 10px 0 9px;
-    color: @KANO_WHITE;
-
-    .font-20();
-  }
+.FooterNavigation {
+}
+.kano-newsletter-content {
+  background-color: #394148;
+  color: @KANO_WHITE;
+  padding-top: 2.5rem;
 
   .newsletter-subheadline {
     color: @KANO_GREY;
     max-width: 448px;
-    .font-16();
   }
-
-  .newsletterSubmission {
-    margin-bottom: 14px;
-  }
-
-  .input {
-    border-radius: 8px;
-    font-size: 16px;
-    line-height: 1.5rem;
-    // width: 100%;
-    outline: none;
-    border: 2px solid transparent;
-    // height: 42px;
-    padding: 0 16px;
-    // margin: 12px 0 20px;
-
-    border: 2px solid #e9ebec;
-  }
-
-  // .kano-btn {
-  //   .xsmall-btn();
-  // }
-
-  // label::placeholder {
-  //   font-size: 12px;
-  //   color: #f5f5f5;
-  // }
 
   .message {
-    background: #394148;
-    margin-top: 0;
-    font-size: 16px;
-    line-height: 24px;
-    text-transform: none;
-    text-align: left;
-    max-width: 400px;
-    margin: 0px;
+    display: none;
+  }
+
+  .subscription {
+    .form-input();
+    .kano-input();
+
+    &--email {
+      margin: 5px auto 14px;
+    }
+  }
+
+  .signmeup-btn {
+    margin: 0 auto 14px;
   }
 
   .consent-checkbox {
-    padding: 0;
-    margin: 0;
-    height: 60px;
     display: flex;
 
-    line-height: 16px;
-    color: #e3e4e6;
-  }
+    .inputContainer {
+      padding-top: 0.5px;
+      padding-right: 6px;
+    }
 
-  .consent-checkbox a {
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-  }
-
-  .checkbox {
-    min-width: 12px;
-    min-height: 12px;
-    border: 1px solid #e3e4e6;
-    border-radius: 3px;
-  }
-
-  .inputContainer {
-    padding-top: 0.5px;
-    padding-right: 6px;
-  }
-
-  .formInput {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  @media all and (max-width: @MOBILE_AND_BELOW) {
-    .columns {
-      display: flex;
-      flex-direction: column;
+    .link {
+      .text-light();
+      font-weight: bold;
     }
   }
 
-  /* MEDIA QUERY CHANGES */
+  /* MEDIA QUERIES*/
 
-  // below mobile
   // @MOBILE_AND_BELOW: 680px;
-
-  // from min width mobile to all
-
-  @media all and (max-width: @TABLET_AND_BELOW) {
-    // .container {
-    //   padding: 28px;
-    // }
-
+  @media all and (max-width: @MOBILE_AND_BELOW) {
     .columns {
-      display: flex;
-      justify-content: space-between;
+      flex-direction: column;
     }
 
     .column {
-      padding: 24px;
+      .col-12();
     }
-  }
 
-  // in between mobile and tablet:
-  // @MOBILE_AND_ABOVE: 681px;
-  // @TABLET_AND_BELOW: 980px;
-
-  @media (min-width: @MOBILE_AND_ABOVE) and (max-width: @TABLET_AND_BELOW) {
-    .container {
-      max-width: 980px;
+    .field {
+      padding: 0 100px;
     }
 
     .newsletter-headline {
-      padding: 0 0 7px;
+      .font-16();
+    }
+    .newsletter-subheadline {
+      .font-12();
+    }
+
+    .input-label {
+      .font-12();
+    }
+
+    .signmeup-btn {
+      .kano-btn();
+      .xsmall-btn();
+    }
+  }
+
+  // @MOBILE_AND_ABOVE: 681px;
+  // @TABLET_AND_BELOW: 980px;
+  @media (max-width: @TABLET_AND_BELOW) {
+  }
+
+  // @TABLET_AND_ABOVE: 981px;
+  // @TABLET_AND_BELOW: 980px;
+  @media (min-width: @MOBILE_AND_ABOVE) and (max-width: @TABLET_AND_BELOW) {
+    .field {
+      margin: 0 55px;
+    }
+
+    .newsletter-headline {
       .font-20();
     }
-
-    .consent-checkbox {
-      margin-top: 5px;
-    }
-
     .newsletter-subheadline {
-      width: 358px;
+      .font-16();
     }
 
-    .newsletterSubmission,
-    .newsletter-subheadline,
-    .input {
-      margin-top: 0px;
-      .font-16();
+    .input-label {
+      .font-14();
     }
 
     .formInput {
       display: flex;
-      flex-wrap: wrap-reverse;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    button.signmeup-btn {
+      .kano-btn();
+      .small-btn();
+      margin: 0 0 14px;
     }
   }
 
-  // above tablet
   // @TABLET_AND_ABOVE: 981px;
-
   @media (min-width: @TABLET_AND_ABOVE) {
-    .newsletter-headline {
+    .newsletter-headlineP {
+      .font-24();
+    }
+    .newsletter-subheadline {
       .font-20();
     }
 
-    .newsletter-subheadline {
-      max-width: 416px;
+    .formInput {
+      display: flex;
+      // flex-direction: column;
+      // align-items: flex-end;
     }
 
-    .input {
-      margin-bottom: 0px;
+    .input-label {
+      .font-16();
     }
-    .formInput {
-      flex-direction: row;
+
+    .subscription {
+      // max-width: 68%;
+      // margin-right: 20px;
+    }
+
+    button.signmeup-btn {
+      .kano-btn();
+      .small-btn();
+      height: 45px;
+      margin: 5px 20px 14px;
+      min-width: 158px;
+      // margin: 0 auto 14px;
     }
   }
+  // component end
 }
-
-/*# sourceMappingURL=style.css.map */

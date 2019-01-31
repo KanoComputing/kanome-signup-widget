@@ -220,8 +220,8 @@ viewSignupContent model =
                     , viewSuccessMessage model.success
                     , viewValidation model
                     , input [ type_ "hidden", name "campaign", value flags.campaign ] []
-                    , input [ class "input email", name "email", placeholder "Enter your email", value model.email, onInput Email ] []
-                    , button [ class "kano-btn", onClick Submit ]
+                    , input [ class "subscription subscription--email", name "email", placeholder "Enter your email", value model.email, onInput Email ] []
+                    , button [ class "signmeup-btn", onClick Submit ]
                         [ text flags.button ]
                     ]
                 ]
@@ -231,9 +231,9 @@ viewSignupContent model =
                         [ div [ class "inputContainer" ]
                             [ input [ class "checkbox", type_ "checkbox", name "opt_in", id "opt_in", onClick ToggleNotifications ] []
                             ]
-                        , label [ attribute "for" "opt_in" ]
+                        , label [ class "input-label", attribute "for" "opt_in" ]
                             [ text "By ticking here you are opting-in to receive the latest news, offers, promotions and competitions from Kano. "
-                            , a [ href "https://kano.me/privacy-policy/uk" ] [ text "Take a peak " ]
+                            , a [ class "link", href "https://kano.me/privacy-policy/uk" ] [ text "Take a peak " ]
                             , text "at how we are using your data."
                             ]
                         ]
@@ -247,9 +247,9 @@ viewSignupContent model =
 view : Model -> Html Msg
 view model =
     section
-        [ class "kano-newsletter-section" ]
-        [ div [ class "container is-fluid" ]
-            [ div [ class "columns is-vcentered" ]
+        [ class "kano-newsletter-content" ]
+        [ div [ class "container" ]
+            [ div [ class "columns" ]
                 [ viewTitle model
                 , viewSignupContent model
                 ]
