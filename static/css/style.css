@@ -3721,7 +3721,7 @@ a.text-error:visited {
     width: 100%;
   }
   .kano-newsletter-content .field {
-    padding: 0 100px;
+    padding: 0 25px;
   }
   .kano-newsletter-content .newsletter-headline {
     font-size: 1rem;
@@ -3842,7 +3842,7 @@ a.text-error:visited {
 }
 @media (min-width: 681px) and (max-width: 980px) {
   .kano-newsletter-content .field {
-    margin: 0 55px;
+    padding: 0 30px;
   }
   .kano-newsletter-content .newsletter-headline {
     font-size: 1.25rem;
@@ -3965,7 +3965,10 @@ a.text-error:visited {
   }
 }
 @media (min-width: 981px) {
-  .kano-newsletter-content .newsletter-headlineP {
+  .kano-newsletter-content .field {
+    padding: 0 50px;
+  }
+  .kano-newsletter-content .newsletter-headline {
     font-size: 1.5rem;
     line-height: 2.2rem;
   }

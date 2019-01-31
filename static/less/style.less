@@ -1,10 +1,11 @@
 @import "constants.less";
 
-.ApplicationFooter-contents {
-}
+// .ApplicationFooter-contents {
+// }
 
-.FooterNavigation {
-}
+// .FooterNavigation {
+// }
+
 .kano-newsletter-content {
   background-color: #394148;
   color: @KANO_WHITE;
@@ -59,7 +60,7 @@
     }
 
     .field {
-      padding: 0 100px;
+      padding: 0 25px;
     }
 
     .newsletter-headline {
@@ -88,7 +89,7 @@
   // @TABLET_AND_BELOW: 980px;
   @media (min-width: @MOBILE_AND_ABOVE) and (max-width: @TABLET_AND_BELOW) {
     .field {
-      margin: 0 55px;
+      padding: 0 30px;
     }
 
     .newsletter-headline {
@@ -117,7 +118,10 @@
 
   // @TABLET_AND_ABOVE: 981px;
   @media (min-width: @TABLET_AND_ABOVE) {
-    .newsletter-headlineP {
+    .field {
+      padding: 0 50px;
+    }
+    .newsletter-headline {
       .font-24();
     }
     .newsletter-subheadline {
